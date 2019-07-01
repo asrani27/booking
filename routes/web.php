@@ -18,7 +18,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+// Authentication Routes...
+$this->get('login', 'Auth\LoginController@showLoginForm')->name('login');
+$this->post('login', 'Auth\LoginController@login');
+$this->post('logout', 'Auth\LoginController@logout')->name('logout');
+
+// Registration Routes...
+$this->get('register', function () {
+    return redirect('/login');
+});
+
 
 Route::get('/logout', function () {
     Auth::logout();
@@ -26,6 +35,8 @@ Route::get('/logout', function () {
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/booking', 'FrontController@booking');
+Route::get('/booking/store', 'FrontController@store')->name('storeBooking');
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/agendakomunitas', 'KomunitasController@index');

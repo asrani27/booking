@@ -10,6 +10,7 @@
     <h1><i class="fa fa-address-card"></i> Peserta</h1>
     <p>List data Peserta Kegiatan Bersama Pemerintah Kota Banjarmasin </p>
   </div>
+  <a class="btn btn-primary" href="#"><i class="fa fa-plus fa-lg"></i></a>
 </div>
 @endsection
 
@@ -21,21 +22,23 @@
         <table class="table table-hover table-bordered" id="sampleTable">
           <thead>
             <tr>
-              <th>Name</th>
-              <th>Position</th>
-              <th>Office</th>
-              <th>Age</th>
-              <th>Start date</th>
-              <th>Salary</th>
+              <th>#</th>
+              <th>No Registrasi</th>
+              <th>Nama Peserta</th>
+              <th>Telp</th>
+              <th>Alamat</th>
+              <th>E-mail</th>
+              <th>Aksi</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Donna Snider</td>
+              <td>1</td>
               <td>Customer Support</td>
               <td>New York</td>
               <td>27</td>
               <td>2011/01/25</td>
+              <td>$112,000</td>
               <td>$112,000</td>
             </tr>
           </tbody>

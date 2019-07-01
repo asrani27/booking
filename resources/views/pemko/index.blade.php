@@ -10,6 +10,7 @@
     <h1><i class="fa fa-institution"></i> Agenda Pemko</h1>
     <p>List Jadwal Agenda Komunitas Bersama Pemerintah Kota Banjarmasin </p>
   </div>
+  <a class="btn btn-primary" href="#"><i class="fa fa-plus fa-lg"></i></a>
 </div>
 @endsection
 
@@ -17,26 +18,38 @@
 <div class="row">
   <div class="col-md-12">
     <div class="tile">
-      <div class="tile-body">
+      <div class="tile-body table-responsive">
         <table class="table table-hover table-bordered" id="sampleTable">
           <thead>
             <tr>
-              <th>Name</th>
-              <th>Position</th>
-              <th>Office</th>
-              <th>Age</th>
-              <th>Start date</th>
-              <th>Salary</th>
+              <th>#</th>
+              <th>Nama Kegiatan</th>
+              <th>Pembicara</th>
+              <th>Topik Kegiatan</th>
+              <th>Jml Peserta Saat Ini</th>
+              <th>Target Peserta</th>
+              <th>Kuota Peserta</th>
+              <th>Tgl Kegiatan</th>
+              <th>Biaya</th>
+              <th>Brosur(File)</th>
+              <th>Publish</th>
+              <th>Aksi</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Donna Snider</td>
-              <td>Customer Support</td>
-              <td>New York</td>
-              <td>27</td>
-              <td>2011/01/25</td>
-              <td>$112,000</td>
+              <th>1</th>
+              <th>Nama Kegiatan</th>
+              <th>Pembicara</th>
+              <th>Topik Kegiatan</th>
+              <th>Jml Peserta Saat Ini</th>
+              <th>Target Peserta</th>
+              <th>Kuota Peserta</th>
+              <th>Tgl Kegiatan</th>
+              <th>Biaya</th>
+              <th>Brosur(File)</th>
+              <th>Publish</th>
+              <th>Aksi</th>
             </tr>
           </tbody>
         </table>
