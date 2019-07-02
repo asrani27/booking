@@ -32,7 +32,7 @@ class FrontController extends Controller
         $s = new Komunitas;
         $s->data = $data;
         $s->save();
-        Alert::success('Success Message', 'Formulir Anda Berhasil Di Kirim, Harap Menunggu Konfirmasi');
+        Alert::success('Success Message', 'Formulir Anda Berhasil Di Kirim, Harap Menunggu Konfirmasi')->autoclose(4000);
         return back();
     }
 }

@@ -40,6 +40,14 @@ Route::get('/booking/store', 'FrontController@store')->name('storeBooking');
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/agendakomunitas', 'KomunitasController@index');
+    Route::get('/agendakomunitas/delete/{id}', 'KomunitasController@delete');
+    Route::post('/agendakomunitas/update/{id}', 'KomunitasController@update')->name('updateKomunitas');
+    Route::get('/agendakomunitas/edit/{id}', 'KomunitasController@edit');
     Route::get('/agendapemko', 'PemkoController@index');
     Route::get('/pesertakegiatan', 'PesertaController@index');
+    Route::get('/setting/waktu', 'WaktuController@index');
+    Route::post('/setting/waktu', 'WaktuController@store')->name('saveTime');
+    Route::post('/setting/waktu/update', 'WaktuController@update')->name('updateTime');
+    Route::get('/setting/waktu/edit', 'WaktuController@edit');
+    Route::get('/setting/waktu/delete/{id}', 'WaktuController@delete');
 });

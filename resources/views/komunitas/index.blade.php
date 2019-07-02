@@ -29,7 +29,6 @@
               <th>E-mail</th>
               <th>Tgl Pinjam</th>
               <th>Waktu Pinjam</th>
-              <th>Tujuan Kegiatan</th></th>
               <th>Jumlah Peserta</th>
               <th>Status</th>
               <th>Publish</th>
@@ -49,11 +48,28 @@
                 <td>{{$d->data->email}}</td>
                 <td>{{\Carbon\Carbon::parse($d->data->tanggal_pinjam)->format('d M Y')}}</td></td>
                 <td>{{$d->data->waktu_pinjam}}</td></td>
-                <td>{{$d->data->tujuan}}</td>
                 <td>{{$d->data->jumlah_peserta}}</td>
-                <td>{{$d->data->verifikasi}}</td>
+                <td>
+                  @if($d->data->verifikasi == 0)
+                    <span class="badge badge-primary">Menunggu Persetujuan</span>
+                  @elseif($d->data->verifikasi == 1)
+                    <span class="badge badge-success">DiSetujui</span>
+                  @elseif($d->data->verifikasi == 2)
+                    <span class="badge badge-danger">Tidak DiSetujui</span>
+                  @endif
+                </td>
                 <td>{{$d->data->publish}}</td>
-                <td>Aksi</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                        <div class="btn-group" role="group">
+                          <button class="btn btn-primary btn-sm" id="btnGroupDrop1" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-gears"></i></button>
+                          <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item" href={{url("agendakomunitas/edit/{$d->id}")}} ><i class="fa fa-edit"></i> Edit</a>
+                            <a class="dropdown-item" href={{url("agendakomunitas/delete/{$d->id}")}} onclick="return confirm('Yakin Ingin Menghapus Data Ini..?');"><i class="fa fa-trash"></i> Hapus</a>
+                          </div>
+                        </div>
+                    </div>
+                </td>
               </tr>
             @endforeach
           </tbody>

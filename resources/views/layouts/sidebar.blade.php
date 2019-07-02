@@ -12,6 +12,7 @@
         <li><a class="app-menu__item {{ (request()->is('agendakomunitas*')) ? 'active' : '' }}" href="{{url('agendakomunitas')}}"><i class="app-menu__icon fa fa-cubes"></i><span class="app-menu__label">Jadwal Agenda Komunitas </span></a></li>
         <li><a class="app-menu__item {{ (request()->is('agendapemko*')) ? 'active' : '' }}" href="{{url('agendapemko')}}"><i class="app-menu__icon fa fa-institution"></i><span class="app-menu__label">Jadwal Bersama Pemko</span></a></li>
         <li><a class="app-menu__item {{ (request()->is('pesertakegiatan*')) ? 'active' : '' }}" href="{{url('pesertakegiatan')}}"><i class="app-menu__icon fa fa-address-card"></i><span class="app-menu__label">Peserta Kegiatan</span></a></li>
+        <li><a class="app-menu__item {{ (request()->is('setting/waktu')) ? 'active' : '' }}" href="{{url('setting/waktu')}}"><i class="app-menu__icon fa fa-clock-o"></i><span class="app-menu__label">Setting Waktu</span></a></li>
         <li><a class="app-menu__item" href="{{url('logout')}}"><i class="app-menu__icon fa fa-window-close"></i><span class="app-menu__label">Logout</span></a></li>
       </ul>
     </aside>
