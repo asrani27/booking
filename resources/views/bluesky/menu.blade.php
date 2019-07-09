@@ -9,17 +9,20 @@
 						</div>
 						<nav class="main_nav">
 							<ul>
-								<li class="active"><a href="index.html">< Portal</a></li>
+								{{-- <li class="active"><a href="index.html">< Portal</a></li> --}}
 								<li><a href="{{url('/')}}">Home</a></li>
-								<li><a href="index.html">List Agenda</a></li>
-								<li><a href="{{url('booking')}}">Booking</a></li>
+								<li><a href="{{url('agenda/komunitas')}}">Agenda Komunitas</a></li>
+								<li><a href="{{url('agenda/pemko')}}">Agenda Pemko</a></li>
+								{{-- <li><a href="{{url('booking')}}">Pesan</a></li> --}}
+								<li><a href="{{url('daftar')}}">Daftar</a></li>
+								<li><a href="{{url('login')}}">Login</a></li>
                             </ul>
 						</nav>
-						<div class="phone_num ml-auto">
+						{{-- <div class="phone_num ml-auto">
 							<div class="phone_num_inner">
 								<img src="{{url('bluesky/images/phone.png')}}" alt=""><span>652-345 3222 11</span>
 							</div>
-						</div>
+						</div> --}}
 						<div class="hamburger ml-auto"><i class="fa fa-bars" aria-hidden="true"></i></div>
 					</div>
 				</div>

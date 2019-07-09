@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Komunitas;
+use App\Waktu;
 use Alert;
 
 class KomunitasController extends Controller
@@ -11,8 +12,10 @@ class KomunitasController extends Controller
     public function index()
     {
         $komunitas = Komunitas::all();
-        $data = $komunitas->map(function($item){
+        $waktu = Waktu::all();
+        $data = $komunitas->map(function($item)use ($waktu){
             $item->data = json_decode($item->data);
+            $item->data->waktu = $waktu->where('id', $item->data->waktu_pinjam)->first()->jam;
             return $item;
         });
         

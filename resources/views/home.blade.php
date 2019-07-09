@@ -18,16 +18,16 @@
   <div class="col-md-6 col-lg-3">
     <div class="widget-small primary coloured-icon"><i class="icon fa fa-users fa-3x"></i>
       <div class="info">
-        <h4>Booking</h4>
-        <p><b>5</b></p>
+        <h4>Total Anggota</h4>
+      <p><b>{{$anggota}}</b></p>
       </div>
     </div>
   </div>
   <div class="col-md-6 col-lg-3">
     <div class="widget-small info coloured-icon"><i class="icon fa fa-thumbs-o-up fa-3x"></i>
       <div class="info">
-        <h4>Verifikasi</h4>
-        <p><b>25</b></p>
+        <h4>Total Komunitas</h4>
+        <p><b>{{$komunitas}}</b></p>
       </div>
     </div>
   </div>
@@ -35,7 +35,7 @@
     <div class="widget-small warning coloured-icon"><i class="icon fa fa-files-o fa-3x"></i>
       <div class="info">
         <h4>Agenda Komunitas</h4>
-        <p><b>10</b></p>
+        <p><b>{{$agendakomunitas}}</b></p>
       </div>
     </div>
   </div>
@@ -43,12 +43,12 @@
     <div class="widget-small danger coloured-icon"><i class="icon fa fa-star fa-3x"></i>
       <div class="info">
         <h4>Agenda Pemko</h4>
-        <p><b>500</b></p>
+        <p><b>{{$agendapemko}}</b></p>
       </div>
     </div>
   </div>
 </div>
-<div class="row">
+{{-- <div class="row">
   <div class="col-md-12">
     <div class="tile">
       <div class="tile-body">
@@ -78,7 +78,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> --}}
 @endsection
 
 @push('add_js')

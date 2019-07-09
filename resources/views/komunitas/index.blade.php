@@ -10,7 +10,7 @@
     <h1><i class="fa fa-cubes"></i> Agenda Komunitas</h1>
     <p>List Jadwal Agenda Komunitas </p>
   </div>
-  <a class="btn btn-primary" href="#"><i class="fa fa-plus fa-lg"></i></a>
+  {{-- <a class="btn btn-primary" href="#"><i class="fa fa-plus fa-lg"></i></a> --}}
 </div>
 @endsection
 
@@ -47,7 +47,7 @@
                 <td>{{$d->data->telp}}</td>
                 <td>{{$d->data->email}}</td>
                 <td>{{\Carbon\Carbon::parse($d->data->tanggal_pinjam)->format('d M Y')}}</td></td>
-                <td>{{$d->data->waktu_pinjam}}</td></td>
+                <td>{{$d->data->waktu}}</td></td>
                 <td>{{$d->data->jumlah_peserta}}</td>
                 <td>
                   @if($d->data->verifikasi == 0)

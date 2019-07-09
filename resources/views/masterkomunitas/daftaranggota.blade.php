@@ -7,10 +7,10 @@
 @section('title')
 <div class="app-title">
   <div>
-    <h1><i class="fa fa-address-card"></i> Peserta</h1>
-    <p>List data Peserta Kegiatan Bersama Pemerintah Kota Banjarmasin </p>
+  <h1><i class="fa fa-users"></i> Daftar Anggota Komunitas : {{$mk->nama_komunitas}}</h1>
+    {{-- <p>List Daftar Komunitas Terdaftar Di Plaza SmartCity</p> --}}
   </div>
-  <a class="btn btn-primary" href="#"><i class="fa fa-plus fa-lg"></i></a>
+  <a class="btn btn-primary" href="{{url('komunitas')}}">Kembali</a>
 </div>
 @endsection
 
@@ -18,49 +18,34 @@
 <div class="row">
   <div class="col-md-12">
     <div class="tile">
-      <div class="tile-body">
+      <div class="tile-body table-responsive">
         <table class="table table-hover table-bordered" id="sampleTable">
           <thead>
             <tr>
               <th>#</th>
-              <th>Kegiatan</th>
-              <th>No Registrasi</th>
-              <th>Nama Peserta</th>
+              <th>Nama Anggota</th>
               <th>Telp</th>
-              <th>Alamat</th>
-              <th>E-mail</th>
-              <th>Verifikasi</th>
+              <th>Aksi</th>
             </tr>
           </thead>
           <?php
-          $no =1;
+          $no = 1;
           ?>
           <tbody>
-            @foreach ($data as $d)
+            @foreach ($anggota as $d)
             <tr>
                 <td>{{$no++}}</td>
-                <td>{{json_decode($d->pemko->data)->nama_kegiatan}}</td>
-                <td>REG{{$d->id}}</td>
                 <td>{{$d->nama}}</td>
                 <td>{{$d->telp}}</td>
-                <td>{{$d->alamat}}</td>
-                <td>{{$d->email}}</td>
                 <td>
-                  @if($d->verifikasi ==0)
                     <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
                         <div class="btn-group" role="group">
                           <button class="btn btn-primary btn-sm" id="btnGroupDrop1" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-gears"></i></button>
                           <div class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href={{url("peserta/setujui/{$d->id}")}} onclick="return confirm('Yakin Ingin Disetujui..?');"><i class="fa fa-check"></i> Setujui</a>
-                            <a class="dropdown-item" href={{url("peserta/tidaksetujui/{$d->id}")}} onclick="return confirm('Yakin Tidak Disetujui..?');"><i class="fa fa-close"></i> Tidak Setujui</a>
+                            <a class="dropdown-item" href={{url("komunitas/delete/anggota/{$mk->id}/{$d->id}")}} onclick="return confirm('Yakin Ingin Menghapus Data Ini..?');"><i class="fa fa-trash"></i> Hapus</a>
                           </div>
                         </div>
                     </div>
-                    @elseif($d->verifikasi ==1)
-                    Disetujui
-                    @elseif($d->verifikasi ==2)
-                    Tidak Disetujui
-                    @endif
                 </td>
               </tr>
             @endforeach
@@ -70,6 +55,7 @@
     </div>
   </div>
 </div>
+
 @endsection
 
 @push('add_js')
@@ -77,4 +63,17 @@
     <script type="text/javascript" src="{{url('vali/js/plugins/jquery.dataTables.min.js')}}"></script>
     <script type="text/javascript" src="{{url('vali/js/plugins/dataTables.bootstrap.min.js')}}"></script>
     <script type="text/javascript">$('#sampleTable').DataTable();</script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
+    {{-- <script type="text/javascript" src="{{url('vali/js/plugins/select2.min.js')}}"></script> --}}
+    <script>
+      $(document).ready(function() {
+        $('#demoSelect').select2({ width: 'resolve' });    
+        
+      $(document).on('click', '.add-anggota', function() {
+        $('#iddata').val($(this).data('id'));
+        $('#modal-tambah').modal('show');
+      });
+      });
+    </script>
 @endpush

@@ -23,10 +23,10 @@
             <!-- Booking Info -->
             <div class="col-lg-4">
                 <div class="contact_info">
-                    <div class="section_title">Form Booking</div>
+                <div class="section_title">Daftar Sebagai Anggota Plaza</div>
                     <div class="contact_info_text">
                         <p>
-                            Silahkan Isi Secara Lengkap Form Di Samping
+                            Silahkan Isi Formulir secara lengkap
                         </p>
                     </div>
                     <div class="contact_info_content">
@@ -51,49 +51,32 @@
             <!-- Booking Form -->
             <div class="col-lg-8">
                 <div class="contact_form_container">
-                    <form action="{{route('storeBooking')}}" class="contact_form" id="contact_form"  method="POST">
+                    <form action="{{route('storeAnggota')}}" class="contact_form" id="contact_form" method="POST">
                             {{ csrf_field() }}
                         <div class="row">
                             <div class="col-lg-6 contact_name_col">
-                                <input type="text" class="contact_input" name="nama_personal" placeholder="Nama Personal" required>
+                                <input type="text" class="contact_input" name="nama" placeholder="Nama Peserta" required>
                             </div>
                             <div class="col-lg-6">
-                                <input type="text" class="contact_input" name="nama_komunitas" placeholder="Nama Komunitas" required>
+                                <input type="text" class="contact_input" name="telp" placeholder="No Telp" required maxlength="16" onkeypress="return hanyaAngka(event)">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-6 contact_name_col">
-                                <input type="text" class="contact_input" name="telp" placeholder="No Telp / WA" required>
+                                <input type="text" class="contact_input" name="alamat" placeholder="Alamat" required>
                             </div>
                             <div class="col-lg-6">
                                 <input type="email" class="contact_input" name="email" placeholder="E-mail Valid" required>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-6">
-                                <p>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;  Tanggal Peminjaman Tempat Plaza :
-                                </p>
-                            </div>
                             <div class="col-lg-6 contact_name_col">
-                                <input id="datepicker" width="276"  name="tanggal_pinjam" value={{\Carbon\Carbon::today()->format('m/d/Y')}}>
-                                <script>
-                                    $('#datepicker').datepicker({
-                                        uiLibrary: 'bootstrap4'
-                                    });
-                                </script>
+                                <input type="text" class="contact_input" name="username" placeholder="Username (Untuk Login)" required>
+                            </div>
+                            <div class="col-lg-6">
+                                <input type="password" class="contact_input" name="password" placeholder="Password (Untuk Login)" required>
                             </div>
                         </div>
-                        <div>
-                            <select class="contact_input" name="waktu_pinjam">
-                                @foreach ($waktu as $w)
-                                    <option value="{{$w->id}}">{{$w->jam}}</option>
-                                @endforeach
-                            </select>
-                        
-                        </div>
-                        <div><input type="text" class="contact_input"  name="tujuan" placeholder="Tujuan Kegiatan"></div>
-                        <div><input type="text" class="contact_input"  name="jumlah_peserta" placeholder="Jumlah Peserta"></div>
                         <button class="contact_button button" type="submit">Kirim</button>
                     </form>
                 </div>
@@ -117,6 +100,14 @@
 <script src="{{url('bluesky/js/property.js')}}"></script>
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
-
+<script>
+function hanyaAngka(evt) {
+		  var charCode = (evt.which) ? evt.which : event.keyCode
+		   if (charCode > 31 && (charCode < 48 || charCode > 57))
+ 
+		    return false;
+		  return true;
+		}
+</script>
 
 @endpush

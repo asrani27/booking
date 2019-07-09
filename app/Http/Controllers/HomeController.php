@@ -3,7 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Auth;
+use App\Anggota;
+use App\Masterkomunitas;
+use App\Komunitas;
+use App\Pemko;
+use App\Waktu;
 class HomeController extends Controller
 {
     /**
@@ -23,6 +28,26 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        if(Auth::user()->hasRole('admin'))
+        {
+            $anggota = count(Anggota::all());
+            $komunitas = count(Masterkomunitas::all());
+            $agendakomunitas = count(Komunitas::all());
+            $agendapemko = count(Pemko::all());
+            return view('home',compact('anggota','komunitas','agendapemko','agendakomunitas'));
+        }
+        elseif(Auth::user()->hasRole('anggota')) {
+            
+            $user_id = Auth::user()->id;
+            $komunitas = Komunitas::all();
+            $waktu = Waktu::all();
+            $data = $komunitas->map(function($item)use($waktu){
+                $item->data = json_decode($item->data);
+                $item->data->waktu = $waktu->where('id', $item->data->waktu_pinjam)->first()->jam;
+               return $item->data;
+            })->where('user_id', $user_id);
+            
+            return view('home_anggota',compact('data'));
+        }
     }
 }

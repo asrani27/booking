@@ -23,10 +23,10 @@
             <!-- Booking Info -->
             <div class="col-lg-4">
                 <div class="contact_info">
-                    <div class="section_title">Form Booking</div>
+                <div class="section_title">Daftar Sebagai Peserta</div>
                     <div class="contact_info_text">
                         <p>
-                            Silahkan Isi Secara Lengkap Form Di Samping
+                            Nama Kegiatan : {{$nama}}
                         </p>
                     </div>
                     <div class="contact_info_content">
@@ -51,49 +51,25 @@
             <!-- Booking Form -->
             <div class="col-lg-8">
                 <div class="contact_form_container">
-                    <form action="{{route('storeBooking')}}" class="contact_form" id="contact_form"  method="POST">
+                    <form action="{{route('storePeserta')}}" class="contact_form" id="contact_form" method="POST">
                             {{ csrf_field() }}
                         <div class="row">
                             <div class="col-lg-6 contact_name_col">
-                                <input type="text" class="contact_input" name="nama_personal" placeholder="Nama Personal" required>
+                                <input type="text" class="contact_input" name="nama" placeholder="Nama Peserta" required>
+                                <input type="hidden" class="contact_input" name="pemko_id" value="{{$id}}" required>
                             </div>
                             <div class="col-lg-6">
-                                <input type="text" class="contact_input" name="nama_komunitas" placeholder="Nama Komunitas" required>
+                                <input type="text" class="contact_input" name="telp" placeholder="No Telp" required>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-6 contact_name_col">
-                                <input type="text" class="contact_input" name="telp" placeholder="No Telp / WA" required>
+                                <input type="text" class="contact_input" name="alamat" placeholder="Alamat" required>
                             </div>
                             <div class="col-lg-6">
                                 <input type="email" class="contact_input" name="email" placeholder="E-mail Valid" required>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <p>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;  Tanggal Peminjaman Tempat Plaza :
-                                </p>
-                            </div>
-                            <div class="col-lg-6 contact_name_col">
-                                <input id="datepicker" width="276"  name="tanggal_pinjam" value={{\Carbon\Carbon::today()->format('m/d/Y')}}>
-                                <script>
-                                    $('#datepicker').datepicker({
-                                        uiLibrary: 'bootstrap4'
-                                    });
-                                </script>
-                            </div>
-                        </div>
-                        <div>
-                            <select class="contact_input" name="waktu_pinjam">
-                                @foreach ($waktu as $w)
-                                    <option value="{{$w->id}}">{{$w->jam}}</option>
-                                @endforeach
-                            </select>
-                        
-                        </div>
-                        <div><input type="text" class="contact_input"  name="tujuan" placeholder="Tujuan Kegiatan"></div>
-                        <div><input type="text" class="contact_input"  name="jumlah_peserta" placeholder="Jumlah Peserta"></div>
                         <button class="contact_button button" type="submit">Kirim</button>
                     </form>
                 </div>
