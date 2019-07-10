@@ -43,26 +43,35 @@ class BookingController extends Controller
 
     public function pesanTempat(Request $req)
     {
-        $tanggal = Carbon::createFromFormat('d/m/Y',$req->tanggal_pinjam)->format('Y-m-d');
-        $data = json_encode([
-            'nama_personal'  => $req->nama_personal,
-            'nama_komunitas' => $req->nama_komunitas,
-            'telp'           => $req->telp,
-            'email'          => $req->email,
-            'tanggal_pinjam' => $tanggal,
-            'waktu_pinjam'   => $req->waktu_pinjam,
-            'tujuan'         => $req->tujuan,
-            'jumlah_peserta' => $req->jumlah_peserta,
-            'user_id'        => $req->user_id,
-            'verifikasi'     => 0,
-            'publish'        => 'ya'
-        ]);
 
-        $s = new Komunitas;
-        $s->data = $data;
-        $s->save();
-        Alert::success('Success Message', 'Data Anda Berhasil Di Kirim, harap menunggu konfirmasi dari Admin')->persistent();
-        return back();
+        $cek_verifikasi = Komunitas::where('data->verifikasi',0)->where('data->nama_komunitas', $req->nama_komunitas)->first();
+        if($cek_verifikasi ==null)
+        {
+            $tanggal = Carbon::createFromFormat('d/m/Y',$req->tanggal_pinjam)->format('Y-m-d');
+            $data = json_encode([
+                'nama_personal'  => $req->nama_personal,
+                'nama_komunitas' => $req->nama_komunitas,
+                'telp'           => $req->telp,
+                'email'          => $req->email,
+                'tanggal_pinjam' => $tanggal,
+                'waktu_pinjam'   => $req->waktu_pinjam,
+                'tujuan'         => $req->tujuan,
+                'jumlah_peserta' => $req->jumlah_peserta,
+                'user_id'        => $req->user_id,
+                'verifikasi'     => 0,
+                'publish'        => 'ya'
+            ]);
+    
+            $s = new Komunitas;
+            $s->data = $data;
+            $s->save();
+            Alert::success('Success Message', 'Data Anda Berhasil Di Kirim, harap menunggu konfirmasi dari Admin')->persistent();
+            return back();
+        }
+        else {
+            Alert::success('Error Message', 'Harap Menunggu Pesanan anda sebelumnya yang masih menunggu verifikasi, cek History')->persistent();
+            return back();
+        }
     }
 
     public function waktu(Request $req)
