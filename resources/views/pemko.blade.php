@@ -37,7 +37,6 @@
                         <th>Tanggal</th>
                         <th>Quota Peserta</th>
                         <th>Jml Peserta Saat Ini</th>
-                        <th>Brosur</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -53,7 +52,6 @@
                         <td>{{\Carbon\Carbon::createFromFormat('d/m/Y', $m->data->tanggal_kegiatan)->format('d M Y')}}</td>
                         <td>{{$m->data->kuota_peserta}} Orang</td>
                         <td>{{$m->data->jml_peserta}} Orang</td>
-                        <td>{{$m->data->file}}</td>
                         <td>
                             <a href={{url("agenda/pemko/daftar/{$m->id}")}}><span class="badge badge-primary">Daftar Jadi Peserta</span></a>
                         </td>
