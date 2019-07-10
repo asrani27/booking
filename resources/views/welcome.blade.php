@@ -22,7 +22,7 @@
 										<div class="home_subtitle">Banjarmasin</div>
                                         <div class="home_title">Working Space Plaza SmartCity</div>
 									</div>
-								<div class="button recent_button"><a href="{{url('booking')}}">Pesan Sekarang</a></div>
+								<div class="button recent_button"><a href="{{url('daftar')}}">Daftar Jadi Anggota</a></div>
 								</div>
 							</div>
 						</div>
