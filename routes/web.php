@@ -98,7 +98,7 @@ Route::group(['middleware' => ['auth', 'role:anggota']], function () {
     Route::get('/komunitasku', 'MyKomunitasController@index');
     Route::get('/komunitasku/{id}/addanggota', 'MyKomunitasController@add');
     Route::get('/komunitasku/daftaranggota/{id}', 'MyKomunitasController@daftaranggota');
-    Route::post('/komunitasku/store', 'MyKomunitasController@store')->name('saveAnggotaKomunitas');
+    Route::post('/komunitasku/store', 'MyKomunitasController@store')->name('saveAnggotaKomunitasku');
     Route::get('/komunitasku/delete/anggota/{id_anggota}/{id_komunitas}', 'MyKomunitasController@deleteanggota');
     Route::post('/anggotaplaza/mailkom', 'AnggotaController@cekmail')->name('cek.mailkom');
     Route::post('/anggotaplaza/userkom', 'AnggotaController@cekuser')->name('cek.userkom');

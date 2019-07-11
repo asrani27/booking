@@ -66,7 +66,7 @@
           <h5 class="modal-title">Tambah Anggota Ke Komunitas</h5>
           <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
         </div>
-      <form class="form-horizontal" method="POST" action="{{route('saveAnggotaKomunitas')}}">
+      <form class="form-horizontal" method="POST" action="{{route('saveAnggotaKomunitasku')}}">
             {{ csrf_field() }}
         <div class="modal-body">
           
