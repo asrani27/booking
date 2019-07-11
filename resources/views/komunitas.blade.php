@@ -59,6 +59,7 @@
                             <span class="badge badge-danger">Tidak DiSetujui</span>
                             @endif
                         </td>
+                        
                     </tr>
                     @endforeach          
                 </tfoot>

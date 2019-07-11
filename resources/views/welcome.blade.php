@@ -13,14 +13,14 @@
 				
 				<!-- Slide -->
 				<div class="owl-item">
-					<div class="home_slider_background" style="background-image:url({{url('bluesky/images/menara.jpg')}}"></div>
+					<div class="home_slider_background" style="background-image:url({{url('bluesky/images/all-01.jpg')}}"></div>
 					<div class="slide_container">
 						<div class="container">
 							<div class="row">
 								<div class="col">
 									<div class="slide_content">
-										<div class="home_subtitle">Banjarmasin</div>
-                                        <div class="home_title">Working Space Plaza SmartCity</div>
+										<div class="home_subtitle"></div>
+                                        <div class="home_title">Banjarmasin Plaza <br />SmartCity</div>
 									</div>
 								<div class="button recent_button"><a href="{{url('daftar')}}">Daftar Jadi Anggota</a></div>
 								</div>
