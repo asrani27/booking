@@ -59,7 +59,8 @@ class MyKomunitasController extends Controller
             $a->users_id = $user_id;
             $a->save();
 
-            $komunitas = Masterkomunitas::find($req->id_komunitas)->first()->id;
+            $komunitas = Masterkomunitas::where('id',$req->id_komunitas)->get()->first()->id;
+            //dd($komunitas, $req->id_komunitas);
             $a->komunitas()->attach($komunitas);
 
             Alert::success('Success Message', 'Berhasil Menambahkan Anggota komunitas')->autoclose(3000);
