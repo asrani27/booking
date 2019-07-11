@@ -18,7 +18,7 @@ class MasterkomunitasController extends Controller
             $item->jumlah_anggota = count($item->anggota);
             return $item;
         });
-
+        
         $anggota = Anggota::all();
         return view('masterkomunitas.index',compact('data','anggota'));
     }

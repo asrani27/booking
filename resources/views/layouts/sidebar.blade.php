@@ -25,7 +25,11 @@
         <li><a class="app-menu__item" href="{{url('logout')}}"><i class="app-menu__icon fa fa-window-close"></i><span class="app-menu__label">Logout</span></a></li>
         @elseif(Auth::user()->hasRole('anggota'))
         <li><a class="app-menu__item {{ (strpos(Route::currentRouteName(), 'home') === 0) ? 'active' : '' }}" href="{{route('home')}}"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Beranda</span></a></li>
-        {{-- <li><a class="app-menu__item {{ (request()->is('mykomunitas*')) ? 'active' : '' }}" href="{{url('mykomunitas')}}"><i class="app-menu__icon fa fa-users"></i><span class="app-menu__label">Komunitas</span></a></li> --}}
+          @if(Auth::user()->anggota->masterkomunitas->first() == null)
+
+          @else
+        <li><a class="app-menu__item {{ (request()->is('komunitasku*')) ? 'active' : '' }}" href="{{url('komunitasku')}}"><i class="app-menu__icon fa fa-users"></i><span class="app-menu__label">Komunitas Saya</span></a></li>
+          @endif
         <li><a class="app-menu__item {{ (strpos(Route::currentRouteName(), 'pesan') === 0) ? 'active' : '' }}" href="{{route('pesan')}}"><i class="app-menu__icon fa fa-cubes"></i><span class="app-menu__label">Pesan Tempat Plaza</span></a></li>
         <li><a class="app-menu__item {{ (strpos(Route::currentRouteName(), 'profil') === 0) ? 'active' : '' }}" href="{{route('profil')}}"><i class="app-menu__icon fa fa-user"></i><span class="app-menu__label">Profil</span></a></li>  
         <li><a class="app-menu__item" href="{{url('logout')}}"><i class="app-menu__icon fa fa-window-close"></i><span class="app-menu__label">Logout</span></a></li> 

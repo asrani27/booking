@@ -95,5 +95,11 @@ Route::group(['middleware' => ['auth', 'role:anggota']], function () {
     Route::post('/pesan/waktu', 'BookingController@waktu');
     Route::get('/profil', 'ProfilController@index')->name('profil');
     Route::post('/profil/update/{id}', 'ProfilController@update')->name('updateAnggota2');
-    Route::get('/mykomunitas', 'MyKomunitasController@index');
+    Route::get('/komunitasku', 'MyKomunitasController@index');
+    Route::get('/komunitasku/{id}/addanggota', 'MyKomunitasController@add');
+    Route::get('/komunitasku/daftaranggota/{id}', 'MyKomunitasController@daftaranggota');
+    Route::post('/komunitasku/store', 'MyKomunitasController@store')->name('saveAnggotaKomunitas');
+    Route::get('/komunitasku/delete/anggota/{id_anggota}/{id_komunitas}', 'MyKomunitasController@deleteanggota');
+    Route::post('/anggotaplaza/mail', 'AnggotaController@cekmail')->name('cek.mail');
+    Route::post('/anggotaplaza/user', 'AnggotaController@cekuser')->name('cek.user');
 });

@@ -7,10 +7,9 @@
 @section('title')
 <div class="app-title">
   <div>
-    <h1><i class="fa fa-users"></i> Daftar Komunitas</h1>
+    <h1><i class="fa fa-users"></i> Daftar Komunitas Saya</h1>
     <p>List Daftar Komunitas Terdaftar Di Plaza SmartCity</p>
   </div>
-<a class="btn btn-primary" href="{{route('addKomunitas')}}"><i class="fa fa-plus fa-lg"></i></a>
 </div>
 @endsection
 
@@ -37,24 +36,16 @@
             @foreach ($data as $d)
             <tr>
                 <td>{{$no++}}</td>
-                <td><a href={{url("komunitas/daftaranggota/{$d->id}")}}>{{$d->nama_komunitas}}</a></td>
+                <td><a href={{url("komunitasku/daftaranggota/{$d->id}")}}>{{$d->nama_komunitas}}</a></td>
                 <td>{{$d->deskripsi}}</td>
-                <td>
-                  @if($d->anggota_id == null)
-                  -
-                  @else
-                  {{$d->ketua->nama}}
-                  @endif
-                </td>
+                <td>{{$d->ketua->nama}}</td>
                 <td>{{$d->jumlah_anggota}}</td>
                 <td>
                     <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
                         <div class="btn-group" role="group">
                           <button class="btn btn-primary btn-sm" id="btnGroupDrop1" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-gears"></i></button>
                           <div class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item add-anggota" href="#" data-id="{{$d->id}}"><i class="fa fa-user"></i> Tambah Anggota</a>
-                            <a class="dropdown-item" href={{url("komunitas/edit/{$d->id}")}} ><i class="fa fa-edit"></i> Edit</a>
-                            <a class="dropdown-item" href={{url("komunitas/delete/{$d->id}")}} onclick="return confirm('Yakin Ingin Menghapus Data Ini..?');"><i class="fa fa-trash"></i> Hapus</a>
+                            <a class="dropdown-item" href={{url("komunitasku/{$d->id}/addanggota")}}><i class="fa fa-user"></i> Tambah Anggota</a>
                           </div>
                         </div>
                     </div>
@@ -85,9 +76,6 @@
                 <div class="col-md-8">
                   <input type="hidden" id="iddata" name="iddata">
                   <select class="form-control" name="anggota_id" id="demoSelect" style="width: 80%;">
-                    @foreach ($anggota as $a)
-                    <option value="{{$a->id}}">PLZ{{$a->id}} / {{$a->nama}}</option>    
-                    @endforeach
                   </select>
                 </div>
               </div>
