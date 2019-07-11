@@ -19,7 +19,7 @@
       <div class="tile">
         <h3 class="tile-title">Tambah Anggota Plaza SmartCity</h3>
         <div class="tile-body">
-      <form class="form-horizontal" method="POST" action="{{route('saveAnggotaKomunitas')}}">
+      <form class="form-horizontal" method="POST" action="{{route('saveAnggotaKomunitasku')}}">
             {{ csrf_field() }}
             <div class="form-group row">
               <label class="control-label col-md-3">Nama Lengkap</label>
