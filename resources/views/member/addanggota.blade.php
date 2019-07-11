@@ -94,7 +94,7 @@
             else
             {
                 $.ajax({
-                    url:"{{ route('cek.mail') }}",
+                    url:"{{ route('cek.mailkom') }}",
                     method:"POST",
                     data:{email:email, _token:_token},
                     success:function(result)
@@ -116,7 +116,7 @@
             user  = document.getElementById('userreg').value;
             var _token = $('input[name="_token"]').val();
                 $.ajax({
-                    url:"{{ route('cek.user') }}",
+                    url:"{{ route('cek.userkom') }}",
                     method:"POST",
                     data:{username:user, _token:_token},
                     success:function(result)

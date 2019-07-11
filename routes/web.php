@@ -100,6 +100,6 @@ Route::group(['middleware' => ['auth', 'role:anggota']], function () {
     Route::get('/komunitasku/daftaranggota/{id}', 'MyKomunitasController@daftaranggota');
     Route::post('/komunitasku/store', 'MyKomunitasController@store')->name('saveAnggotaKomunitas');
     Route::get('/komunitasku/delete/anggota/{id_anggota}/{id_komunitas}', 'MyKomunitasController@deleteanggota');
-    Route::post('/anggotaplaza/mail', 'AnggotaController@cekmail')->name('cek.mail');
-    Route::post('/anggotaplaza/user', 'AnggotaController@cekuser')->name('cek.user');
+    Route::post('/anggotaplaza/mailkom', 'AnggotaController@cekmail')->name('cek.mailkom');
+    Route::post('/anggotaplaza/userkom', 'AnggotaController@cekuser')->name('cek.userkom');
 });
