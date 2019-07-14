@@ -133,7 +133,7 @@ class FrontController extends Controller
             $a->email = $req->email;
             $a->users_id = $user_id;
             $a->save();
-            Alert::success('Terima Kasih', 'Berhasil Mendaftar Sebagai Anggota Plaza SmartCity')->persistent();
+            Alert::success('Terima Kasih', 'Berhasil Mendaftar Sebagai Anggota Pertama Plaza SmartCity')->persistent();
             return back();   
         }
     }
