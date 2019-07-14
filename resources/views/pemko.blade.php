@@ -21,7 +21,7 @@
     <div class="container">
         <div class="row">
 			<div class="col">
-				<div class="section_title">Agenda Komunitas Bersama Pemerintah Kota Banjarmasin</div>
+				<div class="section_title">Agenda Plaza SmartCity</div>
 				<div class="section_subtitle">Plaza SmartCity</div>
 			</div>
 		</div>
