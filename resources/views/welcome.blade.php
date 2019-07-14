@@ -20,8 +20,8 @@
 								<div class="col">
 									<div class="slide_content">
 										<div class="home_subtitle"></div>
-                                        <div class="home_title">Banjarmasin Plaza <br />SmartCity</div>
-									</div><br /><br /><br /><br /><br /><br />
+                                        <div class="home_title"><br /></div>
+									</div><br /><br /><br /><br /><br /><br /><br /><br /><br />
 								<div class="button recent_button"><a href="{{url('daftar')}}">Daftar Jadi Anggota</a></div>
 								</div>
 							</div>
