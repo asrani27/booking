@@ -13,7 +13,7 @@
 				
 				<!-- Slide -->
 				<div class="owl-item">
-					<div class="home_slider_background" style="background-image:url({{url('bluesky/wallpaper.jpeg')}}"></div>
+					<div class="home_slider_background" style="background-image:url({{url('bluesky/wall.JPG')}}"></div>
 					<div class="slide_container">
 						<div class="container">
 							<div class="row">
