@@ -12,7 +12,7 @@
 								{{-- <li class="active"><a href="index.html">< Portal</a></li> --}}
 								<li><a href="{{url('/')}}">Home</a></li>
 								<li><a href="{{url('agenda/komunitas')}}">Agenda Komunitas</a></li>
-								<li><a href="{{url('agenda/pemko')}}">Agenda Pemko</a></li>
+								<li><a href="{{url('agenda/pemko')}}">Agenda Plaza</a></li>
 								{{-- <li><a href="{{url('booking')}}">Pesan</a></li> --}}
 								<li><a href="{{url('daftar')}}">Daftar</a></li>
 								<li><a href="{{url('login')}}">Login</a></li>

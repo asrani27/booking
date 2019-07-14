@@ -114,6 +114,8 @@ class FrontController extends Controller
             return back();
         }
         else {
+            $cekAnggota = count(Anggota::all());
+            //dd($cekAnggota);
             
             $roleAnggota = Role::where('name','anggota')->first();
 
@@ -133,7 +135,16 @@ class FrontController extends Controller
             $a->email = $req->email;
             $a->users_id = $user_id;
             $a->save();
-            Alert::success('Terima Kasih', 'Berhasil Mendaftar Sebagai Anggota Pertama Plaza SmartCity')->persistent();
+
+            if($cekAnggota == 0)
+            {
+                Alert::success('Terima Kasih', 'Selamat! Sebagai Anggota Pertama Banjarmasin Plaza SmartCity')->persistent();
+            }
+            else
+            {
+                $anggotaKe = $cekAnggota + 1;
+                Alert::success('Terima Kasih', 'Selamat! Sebagai Anggota Ke '.$anggotaKe.' Banjarmasin Plaza SmartCity')->persistent();
+            }
             return back();   
         }
     }

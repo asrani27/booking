@@ -23,7 +23,7 @@
             <!-- Booking Info -->
             <div class="col-lg-4">
                 <div class="contact_info">
-                <div class="section_title">Daftar Sebagai Anggota Plaza</div>
+                <div class="section_title">Daftar Sebagai Anggota <br />Plaza SmartCity</div>
                     <div class="contact_info_text">
                         <p>
                             Silahkan Isi Formulir secara lengkap
