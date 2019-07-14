@@ -5,7 +5,7 @@
 				<div class="col">
 					<div class="header_content d-flex flex-row align-items-center justify-content-start">
 						<div class="logo">
-							<h1><font color="white">Plaza</font></h1>
+							<img src="{{url('bluesky/logopng.png')}}">
 						</div>
 						<nav class="main_nav">
 							<ul>
