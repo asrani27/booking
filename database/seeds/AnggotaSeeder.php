@@ -12,12 +12,12 @@ class AnggotaSeeder extends Seeder
      */
     public function run()
     {
-        $s = new Anggota;
-        $s->nama = 'Andi';
-        $s->alamat = 'Jl Pramuka Km 6';
-        $s->email = 'andi@gmail.com';
-        $s->telp = '0878 1441 4887';
-        $s->users_id = 2;
-        $s->save();
+        // $s = new Anggota;
+        // $s->nama = 'Andi';
+        // $s->alamat = 'Jl Pramuka Km 6';
+        // $s->email = 'andi@gmail.com';
+        // $s->telp = '0878 1441 4887';
+        // $s->users_id = 2;
+        // $s->save();
     }
 }
