@@ -17,7 +17,7 @@
 
 @section('content')
 
-<div class="contact">
+{{-- <div class="contact">
     <div class="container">
         <div class="row">
             <!-- Booking Info -->
@@ -100,7 +100,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 
 @endsection
 

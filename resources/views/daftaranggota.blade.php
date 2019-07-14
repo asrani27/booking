@@ -33,15 +33,15 @@
                         <ul class="contact_info_list">
                             <li>
                                 <div>Alamat:</div>
-                                <div>Menara Pandang, Lt.2</div>
+                                <div>Menara Pandang, Lt.3</div>
                             </li>
                             <li>
                                 <div>Phone:</div>
-                                <div>+62 878 1441 4487</div>
+                                <div>+62 823 5262 2199</div>
                             </li>
                             <li>
                                 <div>Email:</div>
-                                <div>plaza.smartcity@gmail.com</div>
+                                <div>bjmplazasmartcity@gmail.com</div>
                             </li>
                         </ul>
                     </div>
