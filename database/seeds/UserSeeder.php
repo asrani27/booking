@@ -24,12 +24,12 @@ class UserSeeder extends Seeder
         $s->save();
         $s->roles()->attach($roleAdmin);
 
-        $s = new User;
-        $s->name = 'Andi';
-        $s->username = 'anggota';
-        $s->email = 'andi@gmail.com';
-        $s->password = bcrypt('rahasia');
-        $s->save();
-        $s->roles()->attach($roleAnggota);
+        // $s = new User;
+        // $s->name = 'Andi';
+        // $s->username = 'anggota';
+        // $s->email = 'andi@gmail.com';
+        // $s->password = bcrypt('rahasia');
+        // $s->save();
+        // $s->roles()->attach($roleAnggota);
     }
 }
