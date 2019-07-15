@@ -55,26 +55,26 @@
                             {{ csrf_field() }}
                         <div class="row">
                             <div class="col-lg-6 contact_name_col">
-                                <input type="text" class="contact_input" name="nama" placeholder="" required>
+                                <input type="text" class="contact_input" name="nama" placeholder="Isi Nama Lengkap" required>
                             </div>
                             <div class="col-lg-6">
-                                <input type="text" class="contact_input" name="telp" value="0811-5014255" required maxlength="16" onkeypress="return hanyaAngka(event)">
+                                <input type="text" class="contact_input" name="telp" placeholder="No Telp" required maxlength="16" onkeypress="return hanyaAngka(event)">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-6 contact_name_col">
-                                <input type="text" class="contact_input" name="alamat" value="Jl. RE. Martadinata No 1 Kota Banjarmasin" placeholder="Alamat" required>
+                                <input type="text" class="contact_input" name="alamat" placeholder="Alamat" placeholder="Alamat" required>
                             </div>
                             <div class="col-lg-6">
-                                <input type="email" class="contact_input" name="email"  value="walikota@banjarmasinkota.go.id" required>
+                                <input type="email" class="contact_input" name="email"  placeholder="Email Valid required>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-6 contact_name_col">
-                                <input type="text" class="contact_input" name="username"  value="walikota" required>
+                                <input type="text" class="contact_input" name="username"  placeholder="Username" required>
                             </div>
                             <div class="col-lg-6">
-                                <input type="password" class="contact_input" name="password"  value="pemkobjm" required>
+                                <input type="password" class="contact_input" name="password"  placeholder="Password" required>
                             </div>
                         </div>
                         <button class="contact_button button" type="submit">Kirim</button>
