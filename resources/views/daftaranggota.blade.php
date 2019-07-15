@@ -65,8 +65,10 @@
                             <div class="col-lg-6 contact_name_col">
                                 <input type="text" class="contact_input" name="alamat" placeholder="Alamat" placeholder="Alamat" required>
                             </div>
+                        </div>
+                        <div class="row">
                             <div class="col-lg-6">
-                                <input type="email" class="contact_input" name="email"  placeholder="Email Valid required>
+                                <input type="email" class="contact_input" name="email"  placeholder="Email Valid" required>
                             </div>
                         </div>
                         <div class="row">
