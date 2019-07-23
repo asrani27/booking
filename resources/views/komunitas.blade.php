@@ -92,18 +92,20 @@
         $('#calendar').fullCalendar({          
             plugins: [ 'bootstrap' ],
             themeSystem: 'bootstrap',
+            
             events : [
                 @foreach($mk as $m)
                 {
-                    title : '{{ $m->data->nama_komunitas}} {{$m->data->waktu}}',
+                    title : '{{ $m->data->nama_komunitas}}',
                     start : '{{ $m->data->tanggal_pinjam }}',
-                    url : '{{ url('#') }}'
+                    url : '{{ url('#') }}',
+                    description : 'Komunitas : {{ $m->data->nama_komunitas}} Jam : {{$m->data->waktu}}'
                 },
                 @endforeach
             ],
             
-            eventClick: function(info) {
-                alert('Komunitas : '+info.title);
+            eventClick: function(info, $el) {
+                alert(info.description);
             },
             
   
