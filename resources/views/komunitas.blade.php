@@ -1,6 +1,8 @@
 @extends('bluesky.master')
 
 @push('add_css')
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.css' />
+
 <link rel="stylesheet" type="text/css" href="{{url('bluesky/plugins/rangeslider.js-2.3.0/rangeslider.css')}}">
 <link rel="stylesheet" type="text/css" href="{{url('bluesky/styles/contact.css')}}">
 <link rel="stylesheet" type="text/css" href="{{url('bluesky/styles/contact_responsive.css')}}">
@@ -12,6 +14,7 @@
 <script src = "//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" defer ></script>
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<link href='https://use.fontawesome.com/releases/v5.0.6/css/all.css' rel='stylesheet'>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 @endpush
 
@@ -28,7 +31,9 @@
         <br />
         <div class="row">
             <div class="col-lg-12">
-            <table id="example" class="display" style="width:100%">
+
+                    <div id='calendar'></div>
+            {{-- <table id="example" class="display" style="width:100%">
                 <thead>
                     <tr>
                         <th>No</th>
@@ -39,9 +44,7 @@
                         <th>Verifikasi</th>
                     </tr>
                 </thead>
-                <?php
-                $no = 1;
-                ?>
+               
                 <tbody>
                     @foreach ($mk as $m)
                     <tr>
@@ -63,7 +66,7 @@
                     </tr>
                     @endforeach          
                 </tfoot>
-            </table>
+            </table> --}}
             </div>
         </div>
     </div>
@@ -80,4 +83,39 @@
 @push('add_js')
 
 
-@endpush
+
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.js'></script>
+<script>
+    $(document).ready(function() {
+        $('#calendar').fullCalendar({          
+            plugins: [ 'bootstrap' ],
+            themeSystem: 'bootstrap',
+            events : [
+                @foreach($mk as $m)
+                {
+                    title : '{{ $m->data->nama_komunitas}} {{$m->data->waktu}}',
+                    start : '{{ $m->data->tanggal_pinjam }}',
+                    url : '{{ url('#') }}'
+                },
+                @endforeach
+            ],
+            
+            eventClick: function(info) {
+                alert('Komunitas : '+info.title);
+            },
+            
+  
+
+        })
+    });
+    
+    // $('#calendar').fullCalendar({
+    //     dayClick: function(date, jsEvent, view) {
+    //         alert('Clicked on: ' + date.format());
+    //     }
+    // });
+</script>
+
+@endpush 
