@@ -42,7 +42,7 @@
             <div class="form-group row">
               <label class="control-label col-md-3">Quota Peserta</label>
               <div class="col-md-8">
-                <input class="form-control" type="text"  value="{{$data->data->kuota_peserta}}" name="kuota_peserta">
+                <input class="form-control" type="text"  value="{{$data->data->kuota_peserta}}" name="kuota_peserta"  onkeypress="return hanyaAngka(event)">
               </div>
             </div>
             <div class="form-group row">
@@ -55,7 +55,7 @@
               <label class="control-label col-md-3">Biaya</label>
               <div class="col-md-8">
                   @if($data->data->biaya == 'Gratis')
-                  <input class="form-control col-md-4" type="text" name="biaya" value="0"> 
+                  <input class="form-control col-md-4" type="text" name="biaya" value="0"  onkeypress="return hanyaAngka(event)"> 
                   <div class="animated-checkbox">
                       <label>
                         <input type="checkbox" id="gratis" name="gratis" checked><span class="label-text"><b>Gratis</b></span>
@@ -127,4 +127,14 @@
       	todayHighlight: true
       });
     </script>
+    
+    <script>
+      function hanyaAngka(evt) {
+		  var charCode = (evt.which) ? evt.which : event.keyCode
+		   if (charCode > 31 && (charCode < 48 || charCode > 57))
+ 
+		    return false;
+		  return true;
+		}
+</script>
 @endpush

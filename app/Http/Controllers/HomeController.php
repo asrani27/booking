@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\Anggota;
+use App\Peserta;
 use App\Masterkomunitas;
 use App\Komunitas;
 use App\Pemko;
@@ -48,6 +49,14 @@ class HomeController extends Controller
             })->where('user_id', $user_id);
             
             return view('home_anggota',compact('data'));
+        }
+        elseif(Auth::user()->hasRole('pengelola')) {
+            
+            $user_id = Auth::user()->id;
+            $peserta = count(peserta::all());
+            $agendapemko = count(Pemko::all());
+            
+            return view('home_pengelola',compact('data','peserta','agendapemko'));
         }
     }
 }

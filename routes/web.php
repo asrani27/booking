@@ -70,18 +70,6 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
     Route::post('/agendakomunitas/update/{id}', 'KomunitasController@update')->name('updateKomunitas');
     Route::get('/agendakomunitas/edit/{id}', 'KomunitasController@edit');
 
-    Route::get('/agendapemko', 'PemkoController@index');
-    Route::get('/agendapemko/daftarpeserta/{id}', 'PemkoController@peserta');
-    Route::get('/agendapemko/edit/{id}', 'PemkoController@edit');
-    Route::get('/agendapemko/delete/{id}', 'PemkoController@delete');
-    Route::get('/agendapemko/add', 'PemkoController@add')->name('addPemko');
-    Route::post('/agendapemko/store', 'PemkoController@store')->name('saveAgendaPemko');
-    Route::post('/agendapemko/update/{id}', 'PemkoController@update')->name('updateAgendaPemko');
-
-    Route::get('/pesertakegiatan', 'PesertaController@index');
-    Route::get('/peserta/setujui/{id}', 'PesertaController@setujui');
-    Route::get('/peserta/tidaksetujui/{id}', 'PesertaController@tidaksetujui');
-
     Route::get('/setting/waktu', 'WaktuController@index');
     Route::post('/setting/waktu', 'WaktuController@store')->name('saveTime');
     Route::post('/setting/waktu/update', 'WaktuController@update')->name('updateTime');
@@ -93,8 +81,6 @@ Route::group(['middleware' => ['auth', 'role:anggota']], function () {
     Route::get('/pesan/tempat', 'BookingController@pesan')->name('pesan');
     Route::post('/pesan/tempat/store', 'BookingController@pesanTempat')->name('pesanTempat');
     Route::post('/pesan/waktu', 'BookingController@waktu');
-    Route::get('/profil', 'ProfilController@index')->name('profil');
-    Route::post('/profil/update/{id}', 'ProfilController@update')->name('updateAnggota2');
     Route::get('/komunitasku', 'MyKomunitasController@index');
     Route::get('/komunitasku/{id}/addanggota', 'MyKomunitasController@add');
     Route::get('/komunitasku/daftaranggota/{id}', 'MyKomunitasController@daftaranggota');
@@ -102,4 +88,25 @@ Route::group(['middleware' => ['auth', 'role:anggota']], function () {
     Route::get('/komunitasku/delete/anggota/{id_anggota}/{id_komunitas}', 'MyKomunitasController@deleteanggota');
     Route::post('/anggotaplaza/mailkom', 'AnggotaController@cekmail')->name('cek.mailkom');
     Route::post('/anggotaplaza/userkom', 'AnggotaController@cekuser')->name('cek.userkom');
+});
+
+
+Route::group(['middleware' => ['auth', 'role:admin|pengelola']], function () {
+    Route::get('/agendapemko', 'PemkoController@index');
+    Route::get('/agendapemko/daftarpeserta/{id}', 'PemkoController@peserta');
+    Route::get('/agendapemko/edit/{id}', 'PemkoController@edit');
+    Route::get('/agendapemko/delete/{id}', 'PemkoController@delete');
+    Route::get('/agendapemko/add', 'PemkoController@add')->name('addPemko');
+    Route::post('/agendapemko/store', 'PemkoController@store')->name('saveAgendaPemko');
+    Route::post('/agendapemko/update/{id}', 'PemkoController@update')->name('updateAgendaPemko');
+
+    Route::get('/pesertakegiatan', 'PesertaController@index');
+    Route::get('/peserta/setujui/{id}', 'PesertaController@setujui');
+    Route::get('/peserta/tidaksetujui/{id}', 'PesertaController@tidaksetujui');
+});
+
+Route::group(['middleware' => ['auth', 'role:anggota|pengelola']], function () {
+    Route::get('/profil', 'ProfilController@index')->name('profil');
+    Route::post('/profil/update/{id}', 'ProfilController@update')->name('updateAnggota2');
+    Route::post('/profil/updatepass/{id}', 'ProfilController@updatePass')->name('updatePass');
 });
