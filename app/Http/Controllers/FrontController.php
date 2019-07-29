@@ -13,6 +13,7 @@ use App\Role;
 use App\Anggota;
 use Alert;
 use DB;
+use Mail;
 
 class FrontController extends Controller
 {
@@ -39,8 +40,28 @@ class FrontController extends Controller
         $p->pemko_id = $req->pemko_id;
         $p->save();
 
-        Alert::success('Success Message', 'Terima Kasih, Silahkan Cek Email Anda Untuk Informasi Selanjutnya')->persistent('Close');
+        $id_peserta = $p->id;
+
+            Mail::send('email', ['nama' => $req->nama, 
+                                 'id_peserta' => $id_peserta
+                                ], 
+
+            function ($message) use ($req){
+                $message->subject('Validasi Peserta Kegiatan Plaza SmartCity');
+                $message->from('plaza.bjm@gmail.com', 'Plaza BJM');
+                $message->to($req->email);
+            });
+
+        Alert::success('Success Message', 'Terima Kasih, Silahkan Cek Email Anda Untuk Validasi Peserta')->persistent('Close');
         return back();
+    }
+
+    public function validasi($id)
+    {
+        $s = Peserta::find($id);
+        $s->verifikasi = 1;
+        $s->save();
+        return view('validasisukses');
     }
 
     public function store(Request $req)

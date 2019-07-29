@@ -23,6 +23,9 @@ $this->get('login', 'Auth\LoginController@showLoginForm')->name('login');
 $this->post('login', 'Auth\LoginController@login');
 $this->post('logout', 'Auth\LoginController@logout')->name('logout');
 
+Route::get('mail', 'MailController@index');
+Route::post('sendEmail', 'MailController@kirim');
+
 // Registration Routes...
 $this->get('register', function () {
     return redirect('/login');
@@ -36,6 +39,7 @@ Route::get('/logout', function () {
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/agenda/komunitas', 'FrontController@komunitas');
+Route::get('/agenda/validasi/{id}', 'FrontController@validasi');
 Route::get('/agenda/pemko', 'FrontController@pemko');
 Route::get('/booking', 'FrontController@booking');
 Route::get('/daftar', 'FrontController@daftaranggota');
