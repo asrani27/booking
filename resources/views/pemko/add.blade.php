@@ -19,7 +19,7 @@
       <div class="tile">
         <h3 class="tile-title">Tambah Agenda Pemerintah Kota</h3>
         <div class="tile-body">
-          <form class="form-horizontal" method="POST" action="{{route('saveAgendaPemko')}}">
+          <form class="form-horizontal" method="POST" action="{{route('saveAgendaPemko')}}" enctype="multipart/form-data">
             {{ csrf_field() }}
             <div class="form-group row">
               <label class="control-label col-md-3">Nama Kegiatan</label>

@@ -55,7 +55,7 @@
                   {{format_uang((int)$d->data->biaya)}}
                   @endif
                 </td>
-                <td>Download</td>
+                <td><a href={{url("storage/{$d->data->file}")}} target="_blank">Download</a></td>
                 <td>{{$d->data->publish}}</td>
                 <td>
                     <div class="btn-group" role="group" aria-label="Button group with nested dropdown">

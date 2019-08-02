@@ -35,8 +35,13 @@ class PemkoController extends Controller
     }
 
     public function store(Request $req)
-    {
-        //dd($req->all());
+    {  
+        if($req->hasFile('file'))
+        {
+            $filename = $req->file->getClientOriginalName();
+            $filename = date('d-m-Y-').rand(1,9999).$filename;
+            $req->file->storeAs('/public',$filename);
+        }   
         if($req->gratis == null)
         {
             $data = json_encode([
@@ -46,7 +51,7 @@ class PemkoController extends Controller
                 'kuota_peserta'    => $req->kuota_peserta,
                 'tanggal_kegiatan' => $req->tanggal_kegiatan,
                 'biaya'            => $req->biaya,
-                'file'             => $req->file,
+                'file'             => $filename,
                 'publish'          => $req->publish
             ]);
             
@@ -63,7 +68,7 @@ class PemkoController extends Controller
                 'kuota_peserta'    => $req->kuota_peserta,
                 'tanggal_kegiatan' => $req->tanggal_kegiatan,
                 'biaya'            => 'Gratis',
-                'file'             => $req->file,
+                'file'             => $filename,
                 'publish'          => $req->publish
             ]);
 
@@ -95,7 +100,6 @@ class PemkoController extends Controller
     }
     public function update(Request $req, $id)
     {
-        
         $filename = json_decode(Pemko::find($id)->data)->file;
         if($req->gratis == null)
         {
@@ -116,7 +120,11 @@ class PemkoController extends Controller
                 $s->data = $data;
                 $s->save();
             }
-            else {   
+            else {
+                
+                $namafile = $req->file->getClientOriginalName();
+                $namafile = date('d-m-Y-').rand(1,9999).$namafile;
+                $req->file->storeAs('/public',$namafile);   
                 $data = json_encode([
                     'nama_kegiatan'    => $req->nama_kegiatan,
                     'pembicara'        => $req->pembicara,
@@ -124,7 +132,7 @@ class PemkoController extends Controller
                     'kuota_peserta'    => $req->kuota_peserta,
                     'tanggal_kegiatan' => $req->tanggal_kegiatan,
                     'biaya'            => $req->biaya,
-                    'file'             => $req->file,
+                    'file'             => $namafile,
                     'publish'          => $req->publish
                 ]);
                 
@@ -153,6 +161,10 @@ class PemkoController extends Controller
                 $s->save();
             }
             else {
+                
+                $namafile = $req->file->getClientOriginalName();
+                $namafile = date('d-m-Y-').rand(1,9999).$namafile;
+                $req->file->storeAs('/public',$namafile);  
                 $data = json_encode([
                     'nama_kegiatan'    => $req->nama_kegiatan,
                     'pembicara'        => $req->pembicara,
@@ -160,7 +172,7 @@ class PemkoController extends Controller
                     'kuota_peserta'    => $req->kuota_peserta,
                     'tanggal_kegiatan' => $req->tanggal_kegiatan,
                     'biaya'            => 'Gratis',
-                    'file'             => $req->file,
+                    'file'             => $namafile,
                     'publish'          => $req->publish
                 ]);
     
