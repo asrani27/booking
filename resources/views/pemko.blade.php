@@ -27,7 +27,7 @@
 		</div>
         <br />
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-lg-12 table-responsive">
             <table id="example" class="display" style="width:100%">
                 <thead>
                     <tr>
