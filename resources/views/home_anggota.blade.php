@@ -18,7 +18,7 @@
 <div class="row">
   <div class="col-md-12">
     <div class="tile">
-      <div class="tile-body">
+      <div class="tile-body  table-responsive">
         <h3 class="tile-title">History Pemesanan Tempat Plaza SmartCity</h3>
         <table class="table table-hover table-bordered" id="sampleTable">
           <thead>
