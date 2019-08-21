@@ -55,7 +55,11 @@
                         <td>{{$m->data->jml_peserta}} Orang</td>
                         <td><a href={{url("storage/{$m->data->file}")}} target="_blank">Brosur</a></td>
                         <td>
-                            <a href={{url("agenda/pemko/daftar/{$m->id}")}}><span class="badge badge-primary">Daftar Jadi Peserta</span></a>
+                            @if($m->data->jml_peserta >= $m->data->kuota)
+                            Penuh    
+                            @else
+                                <a href={{url("agenda/pemko/daftar/{$m->id}")}}><span class="badge badge-primary">Daftar Jadi Peserta</span></a>
+                            @endif
                         </td>
                     </tr>
                     @endforeach          

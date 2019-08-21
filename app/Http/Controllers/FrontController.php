@@ -101,10 +101,10 @@ class FrontController extends Controller
             else {
                 $item->data->jml_peserta = count($item->peserta->where('verifikasi',1));
             }
-            
+            $item->data->kuota = (int)$item->data->kuota_peserta; 
             return $item; 
         });
-        
+        //dd($pk);
         return view('pemko',compact('pk'));
     }
 
