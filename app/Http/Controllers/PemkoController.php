@@ -18,9 +18,11 @@ class PemkoController extends Controller
             if($jml_peserta == null)
             {
                 $item->data->jml_peserta = 0;
+                $item->data->jml_hadir = 0;
             }
             else {
                 $item->data->jml_peserta = count($item->peserta->where('verifikasi',1));
+                $item->data->jml_hadir = count($item->peserta->where('hadir',1));
             }
             
             return $item;

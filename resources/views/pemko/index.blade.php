@@ -26,10 +26,10 @@
               <th>Nama Kegiatan</th>
               <th>Pembicara</th>
               <th>Topik Kegiatan</th>
-              <th>Jml Peserta Saat Ini</th>
+              <th>Yg Menyatakan Hadir</th>
+              <th>Jml Peserta yg Verifikasi</th>
               <th>Kuota Peserta</th>
               <th>Tgl Kegiatan</th>
-              <th>Biaya</th>
               <th>Brosur(File)</th>
               <th>Publish</th>
               <th>Aksi</th>
@@ -45,16 +45,17 @@
                 <td><a href={{url("agendapemko/daftarpeserta/{$d->id}")}}>{{$d->data->nama_kegiatan}}</a></td>
                 <td>{{$d->data->pembicara}}</td>
                 <td>{{$d->data->topik_kegiatan}}</td>
+                <td>{{$d->data->jml_hadir}} Orang</td>
                 <td>{{$d->data->jml_peserta}} Orang</td>
                 <td>{{$d->data->kuota_peserta}} Orang</td>
                 <td>{{$d->data->tanggal_kegiatan}}</td>
-                <td>
+                {{-- <td>
                   @if($d->data->biaya == 'Gratis')
                   Gratis
                   @else
                   {{format_uang((int)$d->data->biaya)}}
                   @endif
-                </td>
+                </td> --}}
                 <td><a href={{url("storage/{$d->data->file}")}} target="_blank">Download</a></td>
                 <td>{{$d->data->publish}}</td>
                 <td>
@@ -62,6 +63,7 @@
                         <div class="btn-group" role="group">
                           <button class="btn btn-primary btn-sm" id="btnGroupDrop1" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-gears"></i></button>
                           <div class="dropdown-menu dropdown-menu-right">
+                              <a class="dropdown-item" href={{url("agendapemko/absensi/{$d->id}")}} ><i class="fa fa-edit"></i> Absensi Peserta</a>
                             <a class="dropdown-item" href={{url("agendapemko/edit/{$d->id}")}} ><i class="fa fa-edit"></i> Edit</a>
                             <a class="dropdown-item" href={{url("agendapemko/delete/{$d->id}")}} onclick="return confirm('Yakin Ingin Menghapus Data Ini..?');"><i class="fa fa-trash"></i> Hapus</a>
                           </div>

@@ -59,7 +59,8 @@ class FrontController extends Controller
     public function validasi($id)
     {
         $s = Peserta::find($id);
-        $s->verifikasi = 1;
+        $s->verifikasi = 1; 
+        $s->hadir = 1;
         $s->save();
         return view('validasisukses');
     }

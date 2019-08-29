@@ -30,6 +30,7 @@
               <th>Alamat</th>
               <th>E-mail</th>
               <th>Verifikasi</th>
+              <th>Aksi</th>
             </tr>
           </thead>
           <?php
@@ -46,7 +47,17 @@
                 <td>{{$d->alamat}}</td>
                 <td>{{$d->email}}</td>
                 <td>
-                  @if($d->verifikasi ==0)
+                  
+                    @if($d->verifikasi == 0)
+                    Di Proses
+                    @elseif($d->verifikasi == 2)
+                    Tidak DiSetujui
+                    @elseif($d->verifikasi == 1)
+                    Disetujui
+                    @endif
+                    
+                </td>
+                <td>
                     <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
                         <div class="btn-group" role="group">
                           <button class="btn btn-primary btn-sm" id="btnGroupDrop1" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-gears"></i></button>
@@ -56,11 +67,6 @@
                           </div>
                         </div>
                     </div>
-                    @elseif($d->verifikasi ==1)
-                    Disetujui
-                    @elseif($d->verifikasi ==2)
-                    Tidak Disetujui
-                    @endif
                 </td>
               </tr>
             @endforeach
