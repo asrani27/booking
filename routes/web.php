@@ -44,6 +44,7 @@ Route::get('/agenda/pemko', 'FrontController@pemko');
 Route::get('/booking', 'FrontController@booking');
 Route::get('/daftar', 'FrontController@daftaranggota');
 Route::get('/agenda/pemko/daftar/{id}', 'FrontController@daftar');
+Route::get('/undangan', 'FrontController@undangan');
 Route::post('/peserta/daftar/store', 'FrontController@simpanPeserta')->name('storePeserta');
 Route::post('/anggota/daftar/store', 'FrontController@simpanAnggota')->name('storeAnggota');
 Route::post('/booking/store', 'FrontController@store')->name('storeBooking');
@@ -79,6 +80,10 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
     Route::post('/setting/waktu/update', 'WaktuController@update')->name('updateTime');
     Route::get('/setting/waktu/edit', 'WaktuController@edit');
     Route::get('/setting/waktu/delete/{id}', 'WaktuController@delete');
+    
+    Route::get('/agendapemko/absensi/{id}', 'LaporanController@peserta');
+    Route::get('/nomorrandom', 'LaporanController@nomorrandom');
+
 });
 
 Route::group(['middleware' => ['auth', 'role:anggota']], function () {

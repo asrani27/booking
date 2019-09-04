@@ -62,6 +62,19 @@ class FrontController extends Controller
         $s->verifikasi = 1; 
         $s->hadir = 1;
         $s->save();
+        $email = Peserta::find($id)->email;
+
+        Mail::send('undangan',['nama' => $s->nama, 
+        'id_peserta' => $id
+        ],
+       function ($message) use ($email){
+                $message->subject('Undangan Resmi Kegiatan Plaza SmartCity');
+                $message->from('plaza.bjm@gmail.com', 'Plaza BJM');
+                $message->to($email);
+            });
+
+        Alert::success('Success Message', 'Undangan Resmi Telah Di Kirim Ke Email Anda, Terima Kasih')->persistent('Close');
+       
         return view('validasisukses');
     }
 
@@ -169,5 +182,10 @@ class FrontController extends Controller
             }
             return back();   
         }
+    }
+
+    public function undangan()
+    {
+        return view('undangan');
     }
 }
