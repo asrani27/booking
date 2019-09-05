@@ -52,6 +52,12 @@
               </div>
             </div>
             <div class="form-group row">
+              <label class="control-label col-md-3">Waktu</label>
+              <div class="col-md-8">
+                <input class="form-control" type="text" placeholder="Contoh: 30" value="{{$data->data->waktu}}" name="waktu" required>
+              </div>
+            </div>
+            <div class="form-group row">
               <label class="control-label col-md-3">Biaya</label>
               <div class="col-md-8">
                   @if($data->data->biaya == 'Gratis')

@@ -63,9 +63,45 @@ class FrontController extends Controller
         $s->hadir = 1;
         $s->save();
         $email = Peserta::find($id)->email;
-
-        Mail::send('undangan',['nama' => $s->nama, 
-        'id_peserta' => $id
+        $pemko_id = $s->pemko_id;
+        $keg = Pemko::where('id', $pemko_id)->get();
+        $mapkeg = $keg->map(function($item){
+            $item->data = json_decode($item->data);
+            $item->hari = Carbon::createfromformat('d/m/Y',$item->data->tanggal_kegiatan)->format('D'); 
+            if($item->hari == 'Mon')
+            {
+                $item->data->hari = 'Senin';
+            }
+            elseif($item->hari == 'Tue')
+            {
+                $item->data->hari = 'Selasa';
+            }
+            elseif($item->hari == 'Wed')
+            {
+                $item->data->hari = 'Rabu';
+            }
+            elseif($item->hari == 'Thu')
+            {
+                $item->data->hari = 'Kamis';
+            }
+            elseif($item->hari == 'Fri')
+            {
+                $item->data->hari = 'Jumat';
+            }
+            elseif($item->hari == 'Sat')
+            {
+                $item->data->hari = 'Sabtu';
+            }
+            elseif($item->hari == 'Sun')
+            {
+                $item->data->hari = 'Minggu';
+            }
+            return $item;
+        });
+        
+        //dd($mapkeg, $s);
+        Mail::send('undangan',['keg' => $mapkeg->first(), 
+        'peserta' => $s
         ],
        function ($message) use ($email){
                 $message->subject('Undangan Resmi Kegiatan Plaza SmartCity');

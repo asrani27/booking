@@ -52,6 +52,12 @@
               </div>
             </div>
             <div class="form-group row">
+              <label class="control-label col-md-3">Waktu</label>
+              <div class="col-md-8">
+                <input class="form-control" type="text" placeholder="Contoh: 30" name="waktu" required >
+              </div>
+            </div>
+            <div class="form-group row">
               <label class="control-label col-md-3">Biaya</label>
               <div class="col-md-8">
                 <input class="form-control col-md-4" type="text" name="biaya"  onkeypress="return hanyaAngka(event)"> 

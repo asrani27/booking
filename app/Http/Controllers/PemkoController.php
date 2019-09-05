@@ -52,6 +52,7 @@ class PemkoController extends Controller
                 'topik_kegiatan'   => $req->topik_kegiatan,
                 'kuota_peserta'    => $req->kuota_peserta,
                 'tanggal_kegiatan' => $req->tanggal_kegiatan,
+                'waktu'            => $req->waktu,
                 'biaya'            => $req->biaya,
                 'file'             => $filename,
                 'publish'          => $req->publish
@@ -69,6 +70,7 @@ class PemkoController extends Controller
                 'topik_kegiatan'   => $req->topik_kegiatan,
                 'kuota_peserta'    => $req->kuota_peserta,
                 'tanggal_kegiatan' => $req->tanggal_kegiatan,
+                'waktu'            => $req->waktu,
                 'biaya'            => 'Gratis',
                 'file'             => $filename,
                 'publish'          => $req->publish
@@ -92,13 +94,25 @@ class PemkoController extends Controller
 
     public function edit($id)
     {
-        $pemko = Pemko::where('id',$id)->get();
-        $data = $pemko->map(function($item){
+        $pemko = Pemko::where('id',$id)->whereJsonLength('data->waktu', '>', 0)->first();
+        if($pemko == null)
+        {
+                $pemko = Pemko::where('id',$id)->get();
+                $data = $pemko->map(function($item){
+                $item->data = json_decode($item->data);
+                $item->data->waktu = '00:00';
+                return $item;
+            })->first();
+            return view('pemko.edit',compact('data'));
+        }
+        else {
+            $p = Pemko::where('id',$id)->get();
+            $data = $p->map(function($item){
             $item->data = json_decode($item->data);
             return $item;
-        })->first();
-
-        return view('pemko.edit',compact('data'));
+            })->first();
+            return view('pemko.edit',compact('data'));
+        }
     }
     public function update(Request $req, $id)
     {
@@ -113,6 +127,7 @@ class PemkoController extends Controller
                     'topik_kegiatan'   => $req->topik_kegiatan,
                     'kuota_peserta'    => $req->kuota_peserta,
                     'tanggal_kegiatan' => $req->tanggal_kegiatan,
+                    'waktu'            => $req->waktu,
                     'biaya'            => $req->biaya,
                     'file'             => $filename,
                     'publish'          => $req->publish
@@ -133,6 +148,7 @@ class PemkoController extends Controller
                     'topik_kegiatan'   => $req->topik_kegiatan,
                     'kuota_peserta'    => $req->kuota_peserta,
                     'tanggal_kegiatan' => $req->tanggal_kegiatan,
+                    'waktu'            => $req->waktu,
                     'biaya'            => $req->biaya,
                     'file'             => $namafile,
                     'publish'          => $req->publish
@@ -153,6 +169,7 @@ class PemkoController extends Controller
                     'topik_kegiatan'   => $req->topik_kegiatan,
                     'kuota_peserta'    => $req->kuota_peserta,
                     'tanggal_kegiatan' => $req->tanggal_kegiatan,
+                    'waktu'            => $req->waktu,
                     'biaya'            => 'Gratis',
                     'file'             => $filename,
                     'publish'          => $req->publish
@@ -173,6 +190,7 @@ class PemkoController extends Controller
                     'topik_kegiatan'   => $req->topik_kegiatan,
                     'kuota_peserta'    => $req->kuota_peserta,
                     'tanggal_kegiatan' => $req->tanggal_kegiatan,
+                    'waktu'            => $req->waktu,
                     'biaya'            => 'Gratis',
                     'file'             => $namafile,
                     'publish'          => $req->publish

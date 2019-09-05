@@ -53,7 +53,7 @@
             <td style="width: 63px">&nbsp;</td>
             <td style="width: 9px">&nbsp;</td>
             <td>&nbsp;</td>
-            <td>&nbsp;Banjarmasin, Oktober 2019</td>
+            <td>&nbsp;Banjarmasin, {{\Carbon\Carbon::today()->format('d M Y')}}</td>
         </tr>
         <tr>
             <td style="width: 63px">Nomor&nbsp;&nbsp;&nbsp; </td>
@@ -77,7 +77,9 @@
             <td style="width: 63px">&nbsp;</td>
             <td style="width: 9px">&nbsp;</td>
             <td>&nbsp;</td>
-            <td>Kepada Yth.<br><br><br>Di -<br>&nbsp;&nbsp;&nbsp;
+            <td>Kepada Yth.<br>
+                {{$peserta->nama}}
+            <br><br>Di -<br>&nbsp;&nbsp;&nbsp;
     <strong>Tempat<br><br></strong></td>
         </tr>
     </table>
@@ -85,26 +87,26 @@
     <table align="center" style="width: 80%">
         <tr>
             <td colspan="4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-            Bersama ini Bapak/Ibu/Saudara(i) diubdangan untuk berhadir pada kegiatan 
+            Bersama ini Bapak/Ibu/Saudara(i) diundang untuk berhadir pada kegiatan 
             yang akan dilaksanakan pada :<br></td>
         </tr>
         <tr>
             <td style="width: 51px">&nbsp;</td>
             <td><strong><em>Hari</em></strong></td>
             <td><strong><em>:</em></strong></td>
-            <td>&nbsp;</td>
+            <td><strong><em>{{$keg->data->hari}}</em></strong></td>
         </tr>
         <tr>
             <td style="width: 51px">&nbsp;</td>
             <td><strong><em>Tanggal</em></strong></td>
             <td><strong><em>:</em></strong></td>
-            <td>&nbsp;</td>
+            <td><strong><em>{{$keg->data->tanggal_kegiatan}}</em></strong></td>
         </tr>
         <tr>
             <td style="width: 51px">&nbsp;</td>
             <td><strong><em>Waktu</em></strong></td>
             <td><strong><em>:</em></strong></td>
-            <td>&nbsp;</td>
+            <td><strong><em>{{$keg->data->waktu}}</em></strong></td>
         </tr>
         <tr>
             <td style="width: 51px">&nbsp;</td>
@@ -116,7 +118,7 @@
             <td style="width: 51px">&nbsp;</td>
             <td><strong><em>Acara</em></strong></td>
             <td><strong><em>:</em></strong></td>
-            <td>&nbsp;</td>
+            <td><strong><em>{{$keg->data->nama_kegiatan}}</em></strong></td>
         </tr>
         <tr>
             <td style="width: 51px">&nbsp;</td>
