@@ -45,9 +45,9 @@
                 <td><a href={{url("agendapemko/daftarpeserta/{$d->id}")}}>{{$d->data->nama_kegiatan}}</a></td>
                 <td>{{$d->data->pembicara}}</td>
                 <td>{{$d->data->topik_kegiatan}}</td>
-                <td>{{$d->data->jml_hadir}} Orang</td>
-                <td>{{$d->data->jml_peserta}} Orang</td>
-                <td>{{$d->data->kuota_peserta}} Orang</td>
+                <td>{{$d->data->jml_hadir}} Org</td>
+                <td>{{$d->data->jml_peserta}} Org</td>
+                <td>{{$d->data->kuota_peserta}} Org</td>
                 <td>{{$d->data->tanggal_kegiatan}}</td>
                 {{-- <td>
                   @if($d->data->biaya == 'Gratis')
