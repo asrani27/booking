@@ -27,8 +27,7 @@ class LaporanController extends Controller
             
             return $item;
         });
-        //dd($kegiatan->first()->data->nama_kegiatan);
-        $data = $kegiatan->first()->peserta;
+        $data = $kegiatan->first()->peserta->where('verifikasi',1);
         //dd($data);
         $pdf = PDF::loadView('laporan.peserta', compact('data','kegiatan'));
   
