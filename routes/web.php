@@ -108,6 +108,7 @@ Route::group(['middleware' => ['auth', 'role:admin|pengelola']], function () {
     Route::get('/agendapemko/add', 'PemkoController@add')->name('addPemko');
     Route::post('/agendapemko/store', 'PemkoController@store')->name('saveAgendaPemko');
     Route::post('/agendapemko/update/{id}', 'PemkoController@update')->name('updateAgendaPemko');
+    Route::get('/agendapemko/peserta/batal/{id}', 'PemkoController@batalpeserta');
 
     Route::get('/pesertakegiatan', 'PesertaController@index');
     Route::get('/peserta/setujui/{id}', 'PesertaController@setujui');

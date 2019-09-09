@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Pemko;
+use App\Peserta;
 use Alert;
 use DB;
 
@@ -210,5 +211,15 @@ class PemkoController extends Controller
         $p = Pemko::find($id);
         $peserta = $p->peserta->where('verifikasi',1);
         return view ('pemko.daftarpeserta',compact('peserta'));
+    }
+
+    public function batalpeserta($id)
+    {
+        $s = Peserta::find($id);
+        $s->verifikasi = 0; 
+        $s->hadir = 0;
+        $s->save();
+        Alert::success('Success Message', 'Peserta Di Cancel')->autoclose(3500);
+        return back();
     }
 }
