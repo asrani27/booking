@@ -58,6 +58,19 @@ class FrontController extends Controller
 
     public function validasi($id)
     {
+        $cek = Peserta::find($id);
+        $jmlkuota = $cek->pemko->peserta->where('verifikasi', 1)->count();
+        $kuota = json_decode($cek->pemko->data);
+        $kp = (int)$kuota->kuota_peserta;
+        if($jmlkuota >= $kp)
+        {
+
+            Alert::success('Success Message', 'Mohon Maaf Kuota Telah Penuh, Terima Kasih')->persistent('Close');
+       
+            return view('validasisukses');
+        }
+        else {
+            
         $s = Peserta::find($id);
         $s->verifikasi = 1; 
         $s->hadir = 1;
@@ -112,6 +125,7 @@ class FrontController extends Controller
         Alert::success('Success Message', 'Undangan Resmi Telah Di Kirim Ke Email Anda, Terima Kasih')->persistent('Close');
        
         return view('validasisukses');
+        }
     }
 
     public function store(Request $req)
