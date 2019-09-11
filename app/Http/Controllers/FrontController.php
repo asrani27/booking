@@ -48,7 +48,7 @@ class FrontController extends Controller
 
             function ($message) use ($req){
                 $message->subject('Validasi Peserta Kegiatan Plaza SmartCity');
-                $message->from('plaza.bjm@gmail.com', 'Plaza BJM');
+                $message->from('bjmplazasmartcity@gmail.com', 'Plaza BJM');
                 $message->to($req->email);
             });
 
