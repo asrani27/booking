@@ -26,6 +26,8 @@
               <th>Nama</th>
               <th>E-Mail</th>
               <th>Telp</th>
+              <th>Tgl & Jam</th>
+              <th>Aksi</th>
             </tr>
           </thead>
           <?php
@@ -38,6 +40,8 @@
                 <td>{{$d->nama}}</td>
                 <td>{{$d->email}}</td>
                 <td>{{$d->telp}}</td>
+                <td>{{\Carbon\Carbon::parse($d->created_at)->formatLocalized('%A, %d %B %Y %H:%I:%S')}}</td>
+                <td><a href={{url("agendapemko/peserta/batal/{$d->id}")}}>Cancel</a></td>
               </tr>
             @endforeach
           </tbody>

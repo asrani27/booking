@@ -27,9 +27,9 @@
               <th>No Registrasi</th>
               <th>Nama Peserta</th>
               <th>Telp</th>
-              <th>Alamat</th>
               <th>E-mail</th>
               <th>Verifikasi</th>
+              <th>Tgl & Jam</th>
               <th>Aksi</th>
             </tr>
           </thead>
@@ -44,7 +44,6 @@
                 <td>REG{{$d->id}}</td>
                 <td>{{$d->nama}}</td>
                 <td>{{$d->telp}}</td>
-                <td>{{$d->alamat}}</td>
                 <td>{{$d->email}}</td>
                 <td>
                   
@@ -57,6 +56,7 @@
                     @endif
                     
                 </td>
+                <td>{{\Carbon\Carbon::parse($d->created_at)->formatLocalized('%A, %d %B %Y %H:%I:%S')}}</td>
                 <td>
                     <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
                         <div class="btn-group" role="group">
