@@ -8,6 +8,10 @@ class Masterkomunitas extends Model
 {
     protected $table  = 'master_komunitas';
 
+    protected $fillable = [
+        'name', 'email', 'password',
+    ];
+
     public function ketua()
     {
         return $this->belongsTo(Anggota::class, 'anggota_id');

@@ -122,6 +122,12 @@
         </tr>
         <tr>
             <td style="width: 51px">&nbsp;</td>
+            <td><strong><em>Narasumber</em></strong></td>
+            <td><strong><em>:</em></strong></td>
+            <td><strong><em>{{$keg->data->pembicara}}</em></strong></td>
+        </tr>
+        <tr>
+            <td style="width: 51px">&nbsp;</td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
@@ -148,8 +154,9 @@
     
     <table align="center" style="width: 80%">
         <tr>
-            <td><strong><em>Catatan :<br>Semua peserta rapat harap membawa air minum<br>
-            di dalam Timbler (botol) masing-masing</em></strong></td>
+            <td><strong><em>Catatan :<br>-Semua peserta rapat harap membawa air minum<br>
+            di dalam Timbler (botol) masing-masing</em><br>
+            - Free Snack Box (Gratis Kue Kotak)</strong></td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
