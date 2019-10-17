@@ -55,7 +55,7 @@
             <div class="form-group row">
               <label class="control-label col-md-3">Waktu Pinjam</label>
               <div class="col-md-8">
-                <input class="form-control" type="text" value="{{$data->data->waktu_pinjam}}" readonly>
+                <input class="form-control" type="text" value="{{$data->data->waktu}}" readonly>
               </div>
             </div>
             <div class="form-group row">

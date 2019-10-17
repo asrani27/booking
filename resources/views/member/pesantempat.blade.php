@@ -87,7 +87,7 @@
             <div class="form-group row">
               <label class="control-label col-md-3">Waktu Pesan</label>
               <div class="col-md-8">
-                    <select class="form-control" name="waktu_pinjam" id="demoSelect">
+                    <select class="form-control" name="waktu_pinjam" id="demoSelect" required>
                     </select>
               </div>
             </div>

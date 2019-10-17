@@ -33,8 +33,10 @@ class KomunitasController extends Controller
     public function edit($id)
     {
         $komunitas = Komunitas::where('id',$id)->get();
-        $data = $komunitas->map(function($item){
+        $waktu = Waktu::all();
+        $data = $komunitas->map(function($item) use ($waktu){
             $item->data = json_decode($item->data);
+			$item->data->waktu = $waktu->where('id', $item->data->waktu_pinjam)->first()->jam;
             return $item;
         })->first();
         //dd($data);
