@@ -181,6 +181,7 @@ class FrontController extends Controller
             $item->data->waktu = $waktu->where('id', $item->data->waktu_pinjam)->first();
             return $item->data->waktu;
         });
+        dd($mk);
         return view('komunitas',compact('mk'));
     } 
 
