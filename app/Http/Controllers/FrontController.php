@@ -178,8 +178,8 @@ class FrontController extends Controller
         $waktu = Waktu::all();
         $mk = $komunitas->map(function($item)use ($waktu){
             $item->data = json_decode($item->data);
-            $item->data->waktu = $waktu->where('id', $item->data->waktu_pinjam)->first()->jam;
-            return $item;
+            $item->data->waktu = $waktu->where('id', $item->data->waktu_pinjam)->first();
+            return $item->data->waktu;
         });
         return view('komunitas',compact('mk'));
     } 
