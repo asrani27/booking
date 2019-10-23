@@ -160,7 +160,7 @@
                     <td>
                 A.n. Plt. Kepala Dinas,<br>Kepala Bidang Layanan 
             E-Government,<br>
-            <img src="" width="50px"  height="50px">
+            <img src="http://plaza.banjarmasinkota.go.id/vali/ttd.jpg" width="70px"  height="50px">
             <br><span class="auto-style9">AHMAD SYARWANI,SE</span><br>
             NIP. 19670608 199302 1 002<td>
                         </tr>
