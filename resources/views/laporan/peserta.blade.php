@@ -21,8 +21,7 @@
 	font-size: x-small;
 	font-family: Arial, Helvetica, sans-serif;
 	text-align: center;
-	border-style: solid;
-	border-width: 1px;
+	border: 1px solid black;
 }
 .auto-style55 {
 	font-size: xx-small;
@@ -56,18 +55,21 @@
 <span class="auto-style3">HARI / TGL :&nbsp;&nbsp;{{$kegiatan->first()->data->tanggal_kegiatan}}</span></strong></p>
 <table cellpadding="2" cellspacing="0" class="auto-style7" style="width: 100%">
 	<tr>
-		<td class="auto-style5" style="height: 30px; width: 30px"><strong>NO</strong></td>
-		<td class="auto-style5" style="height: 30px; width: 180px"><strong>NAMA</strong></td>
+		<td class="auto-style5" style="height: 30px; width: 20px"><strong>NO</strong></td>
+		<td class="auto-style5" style="height: 30px; width: 100px"><strong>NAMA</strong></td>
 		<td class="auto-style5" style="height: 30px; width: 260px"><strong>
 		ALAMAT/KOMUNITAS</strong></td>
-		<td class="auto-style5" style="height: 30px"><strong>ACC UNDANGAN 
+		<td class="auto-style5" style="height: 30px; width: 120px"><strong>
+		PENERIMA</strong></td>
+		<td class="auto-style5" style="height: 30px; width: 100px "><strong>TGL UNDANGAN
 		DITERIMA</strong></td>
 	</tr>
 	<tr>
-		<td class="auto-style55" style="height: 10px; width: 30px"><strong>1</strong></td>
-		<td class="auto-style55"><strong>2</strong></td>
-		<td class="auto-style55"><strong>3</strong></td>
-		<td class="auto-style55"><strong>4</strong></td>
+		<td class="auto-style5" style="height: 10px; width: 20px"><strong>1</strong></td>
+		<td class="auto-style5"><strong>2</strong></td>
+		<td class="auto-style5"><strong>3</strong></td>
+		<td class="auto-style5"><strong>4</strong></td>
+		<td class="auto-style5" style="border: 1px solid black"><strong>5</strong></td>
     </tr>
     <?php
     $no =1;
@@ -75,9 +77,11 @@
     @foreach($data as $dt)
 	<tr>
         <td class="auto-style8" style="text-align: center">{{$no++}}</td>
-        <td class="auto-style8" style="width: 210px">{{$dt->nama}}</td>
+        <td class="auto-style8" style="width: 120px">{{$dt->nama}}</td>
 		<td class="auto-style8">{{$dt->alamat}}</td>
-		<td class="auto-style6"></td>
+		<td class="auto-style8">{{$dt->email}}</td>
+		<td class="auto-style8" style="text-align: center">{{\Carbon\Carbon::parse($dt->updated_at)->format('d M Y')}}</td>
+
 	</tr>
     @endforeach
 </table>
