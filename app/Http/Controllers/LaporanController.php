@@ -71,7 +71,7 @@ class LaporanController extends Controller
     public function anggota()
     {
         $data = Anggota::all();
-        $pdf = PDF::loadView('laporan.anggota', compact('data'));
+        $pdf = PDF::loadView('laporan.anggota', compact('data'))->setPaper('letter');
         return $pdf->download('anggotaplaza.pdf');
     }
 
