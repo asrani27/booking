@@ -179,9 +179,9 @@ class FrontController extends Controller
         $mk = $komunitas->map(function($item)use ($waktu){
             $item->data = json_decode($item->data);
             $item->data->waktu = $waktu->where('id', $item->data->waktu_pinjam)->first();
-            return $item->data->waktu->id;
+            return $item->data->waktu;
         });
-        dd($mk);
+        //dd($mk);
         return view('komunitas',compact('mk'));
     } 
 

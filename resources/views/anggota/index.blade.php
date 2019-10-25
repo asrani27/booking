@@ -11,6 +11,7 @@
     <p>List Daftar Anggota Terdaftar Di Plaza SmartCity</p>
   </div>
 <a class="btn btn-primary" href="{{route('addAnggota')}}"><i class="fa fa-plus fa-lg"></i></a>
+<a class="btn btn-primary" href="{{route('pdfAnggota')}}">Export PDF</a>
 </div>
 @endsection
 
