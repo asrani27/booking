@@ -79,8 +79,8 @@
         <td class="auto-style8" style="text-align: center">{{$no++}}</td>
         <td class="auto-style8" style="width: 120px">{{$dt->nama}}</td>
 		<td class="auto-style8">{{$dt->alamat}}</td>
-		<td class="auto-style8">{{$dt->email}}</td>
-		<td class="auto-style8" style="text-align: center">{{\Carbon\Carbon::parse($dt->updated_at)->format('d M Y')}}</td>
+		<td class="auto-style8">{{$dt->nama}}</td>
+		<td class="auto-style8" style="text-align: center">{{$dt->hari}}, {{\Carbon\Carbon::parse($dt->created_at)->format('d M Y')}}</td>
 
 	</tr>
     @endforeach
