@@ -57,6 +57,8 @@
                         <td>
                             @if($m->data->jml_peserta >= $m->data->kuota)
                             Penuh    
+                            @elseif(\Carbon\Carbon::createFromFormat('d/m/Y',$m->data->tanggal_kegiatan) < \Carbon\Carbon::today())
+                                Tutup
                             @else
                                 <a href={{url("agenda/pemko/daftar/{$m->id}")}}><span class="badge badge-primary">Daftar Jadi Peserta</span></a>
                             @endif

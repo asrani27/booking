@@ -51,7 +51,7 @@
             <!-- Booking Form -->
             <div class="col-lg-8">
                 <div class="contact_form_container">
-                    <form action="{{route('storePeserta')}}" class="contact_form" id="contact_form" method="POST">
+                    <form id="formABC" action="{{route('storePeserta')}}" class="contact_form" id="contact_form" method="POST">
                             {{ csrf_field() }}
                         <div class="row">
                             <div class="col-lg-6 contact_name_col">
@@ -70,7 +70,7 @@
                                 <input type="email" class="contact_input" name="email" placeholder="E-mail Valid" required>
                             </div>
                         </div>
-                        <button class="contact_button button" type="submit">Kirim</button>
+                        <button class="contact_button button btnSubmit" type="submit">Kirim</button>
                     </form>
                 </div>
             </div>
@@ -82,7 +82,14 @@
 
 
 @push('add_js')
-
+<script>
+    $(document).ready(function () {
+        $("#formABC").submit(function () {
+        $(".btnSubmit").attr("disabled", true);
+        return true;
+        });
+    });
+</script>
 
 <script src="{{url('bluesky/plugins/greensock/TweenMax.min.js')}}"></script>
 <script src="{{url('bluesky/plugins/greensock/TimelineMax.min.js')}}"></script>

@@ -30,6 +30,15 @@
     .auto-style9 {
         text-decoration: underline;
     }
+    .auto-styleTTD {
+        text-align: center; 
+        background-image:url('vali/ttd.jpg');
+        height: 100%;
+
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100px;
+    }
     </style>
     </head>
     
@@ -145,9 +154,18 @@
             <td style="width: 80px">&nbsp;</td>
             <td style="width: 71px">&nbsp;</td>
             <td style="width: 139px">&nbsp;</td>
-            <td class="auto-style5">A.n. Plt. Kepala Dinas,<br>Kepala Bidang Layanan 
-            E-Government,<br><br><br><span class="auto-style9">AHMAD SYARWANI,SE</span><br>
-            NIP. 19670608 199302 1 002</td>
+            <td class="auto-style5">
+                <table align=center>
+                    <tr>
+                    <td>
+                A.n. Plt. Kepala Dinas,<br>Kepala Bidang Layanan 
+            E-Government,<br>
+            <img src="http://plaza.banjarmasinkota.go.id/vali/ttd.jpg" width="70px"  height="50px">
+            <br><span class="auto-style9">AHMAD SYARWANI,SE</span><br>
+            NIP. 19670608 199302 1 002<td>
+                        </tr>
+                </table>
+        </td>
         </tr>
     </table>
     

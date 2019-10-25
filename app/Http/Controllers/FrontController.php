@@ -155,7 +155,7 @@ class FrontController extends Controller
     {
         $pemko = Pemko::where('data->publish', 'ya')->get();
         
-        $pk = $pemko->map(function($item){
+        $keg = $pemko->map(function($item){
             $item->data = json_decode($item->data);
             $jml_peserta = $item->peserta;
             if($jml_peserta == null)
@@ -165,10 +165,13 @@ class FrontController extends Controller
             else {
                 $item->data->jml_peserta = count($item->peserta->where('verifikasi',1));
             }
-            $item->data->kuota = (int)$item->data->kuota_peserta; 
+            $item->data->kuota = (int)$item->data->kuota_peserta;
+            $item->tanggal = Carbon::CreateFromFormat('d/m/Y',$item->data->tanggal_kegiatan); 
             return $item; 
         });
-        //dd($pk);
+            $pk = $keg->sortBy(function ($obj, $key) {
+                return $obj->tanggal;
+            });
         return view('pemko',compact('pk'));
     }
 
@@ -178,10 +181,10 @@ class FrontController extends Controller
         $waktu = Waktu::all();
         $mk = $komunitas->map(function($item)use ($waktu){
             $item->data = json_decode($item->data);
-            $item->data->waktu = $waktu->where('id', $item->data->waktu_pinjam)->first();
-            return $item->data->waktu;
+            $item->data->waktu = $waktu->where('id', $item->data->waktu_pinjam)->first()->jam;
+            return $item;
         });
-        //dd($mk);
+		
         return view('komunitas',compact('mk'));
     } 
 
