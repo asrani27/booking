@@ -10,8 +10,8 @@
     <h1><i class="fa fa-user"></i> Daftar Anggota Plaza</h1>
     <p>List Daftar Anggota Terdaftar Di Plaza SmartCity</p>
   </div>
+  <a class="btn btn-primary" href="{{route('pdfAnggota')}}">Export PDF</a>
 <a class="btn btn-primary" href="{{route('addAnggota')}}"><i class="fa fa-plus fa-lg"></i></a>
-<a class="btn btn-primary" href="{{route('pdfAnggota')}}">Export PDF</a>
 </div>
 @endsection
 
@@ -19,6 +19,7 @@
 <div class="row">
   <div class="col-md-12">
     <div class="tile">
+      
       <div class="tile-body table-responsive">
         <table class="table table-hover table-bordered" id="sampleTable">
           <thead>

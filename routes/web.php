@@ -58,6 +58,7 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
     Route::post('/anggotaplaza/update/{id}', 'AnggotaController@update')->name('updateAnggota');
     Route::get('/anggotaplaza', 'AnggotaController@index');
     Route::get('/anggotaplaza/add', 'AnggotaController@add')->name('addAnggota');
+    Route::get('/anggotaplaza/pdf', 'LaporanController@anggota')->name('pdfAnggota');
     Route::post('/anggotaplaza/store', 'AnggotaController@store')->name('saveAnggota');
 
     Route::get('/komunitas', 'MasterkomunitasController@index');

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Peserta;
 use Carbon\Carbon;
 use App\Pemko;
+use App\Anggota;
 use PDF;
 
 class LaporanController extends Controller
@@ -65,6 +66,13 @@ class LaporanController extends Controller
         $pdf = PDF::loadView('laporan.peserta', compact('data','kegiatan'));
   
         return $pdf->download('peserta.pdf');
+    }
+
+    public function anggota()
+    {
+        $data = Anggota::all();
+        $pdf = PDF::loadView('laporan.anggota', compact('data'));
+        return $pdf->download('anggotaplaza.pdf');
     }
 
 }
