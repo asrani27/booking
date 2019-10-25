@@ -51,7 +51,7 @@
 
 <p class="auto-style1"><strong>DAFTAR ANGGOTA PLAZA SMART CITY KOTA BANJARMASIN </strong></p>
 
-<table cellpadding="2" cellspacing="0" class="auto-style7" style="width: 90%">
+<table cellpadding="2" cellspacing="0" class="auto-style7" style="width: 97%">
 	<tr>
 		<td class="auto-style5" style="height: 30px; width: 20px"><strong>NO</strong></td>
 		<td class="auto-style5" style="height: 30px; width: 100px"><strong>NAMA</strong></td>
@@ -74,10 +74,10 @@
     @foreach($data as $dt)
 	<tr>
         <td class="auto-style8" style="text-align: center">{{$no++}}</td>
-        <td class="auto-style8" style="width: 100px">{{$dt->nama}}</td>
+        <td class="auto-style8">{{$dt->nama}}</td>
 		<td class="auto-style8">{{$dt->email}}</td>
 		<td class="auto-style8" style="width: 180px">{{$dt->alamat}}</td>
-		<td class="auto-style8" style="text-align: center;width: 70px">{{$dt->telp}}</td>
+		<td class="auto-style8" style="text-align: center;">{{$dt->telp}}</td>
 
 	</tr>
     @endforeach
