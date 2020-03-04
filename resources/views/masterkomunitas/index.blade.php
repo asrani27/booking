@@ -26,7 +26,9 @@
               <th>Nama Komunitas</th>
               <th>Deskripsi Komunitas</th>
               <th>Penanggung Jawab</th>
-              <th>Jumlah Anggota</th>
+			  
+{{-- <th>Jumlah Anggota</th>--}}
+              
               <th>Aksi</th>
             </tr>
           </thead>
@@ -46,7 +48,8 @@
                   {{$d->ketua->nama}}
                   @endif
                 </td>
-                <td>{{$d->jumlah_anggota}}</td>
+				{{--
+                <td>{{$d->jumlah_anggota}}</td>--}}
                 <td>
                     <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
                         <div class="btn-group" role="group">
