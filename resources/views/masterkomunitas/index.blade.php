@@ -26,14 +26,8 @@
               <th>Nama Komunitas</th>
               <th>Deskripsi Komunitas</th>
               <th>Penanggung Jawab</th>
-<<<<<<< HEAD
-			  
-{{-- <th>Jumlah Anggota</th>--}}
-              
-=======
               <th>Jumlah Anggota</th>
               <th>Status Validasi</th>
->>>>>>> 789e8c89b2bb480975ab65c987c7e3692a021add
               <th>Aksi</th>
             </tr>
           </thead>
@@ -53,8 +47,7 @@
                   {{$d->ketua->nama}}
                   @endif
                 </td>
-				{{--
-                <td>{{$d->jumlah_anggota}}</td>--}}
+                <td>{{$d->jumlah_anggota}}</td>
                 <td>
                   @if($d->validasi_admin == 0)
                   Di Proses
