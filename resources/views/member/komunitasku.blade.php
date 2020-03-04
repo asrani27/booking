@@ -26,6 +26,7 @@
               <th>Deskripsi Komunitas</th>
               <th>Penanggung Jawab</th>
               <th>Jumlah Anggota</th>
+              <th>Status Validasi</th>
               <th>Aksi</th>
             </tr>
           </thead>
@@ -41,6 +42,16 @@
                 <td>{{$d->ketua->nama}}</td>
                 <td>{{$d->jumlah_anggota}}</td>
                 <td>
+                  @if($d->validasi_admin == 0)
+                  Di Proses
+                  @elseif($d->validasi_admin == 1)
+                  Di Tolak
+                  @elseif($d->validasi_admin == 2)
+                  Di Setujui
+                  @endif
+                <td>
+                  
+                  @if($d->validasi_admin == 2)
                     <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
                         <div class="btn-group" role="group">
                           <button class="btn btn-primary btn-sm" id="btnGroupDrop1" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-gears"></i></button>
@@ -49,6 +60,8 @@
                           </div>
                         </div>
                     </div>
+                  @else
+                  @endif
                 </td>
               </tr>
             @endforeach
