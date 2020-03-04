@@ -30,6 +30,7 @@
           @else
         <li><a class="app-menu__item {{ (request()->is('komunitasku*')) ? 'active' : '' }}" href="{{url('komunitasku')}}"><i class="app-menu__icon fa fa-users"></i><span class="app-menu__label">Komunitas Saya</span></a></li>
           @endif
+          <li><a class="app-menu__item {{ (strpos(Route::currentRouteName(), 'akunkomunitas') === 0) ? 'active' : '' }}" href="{{route('akunkomunitas')}}"><i class="app-menu__icon fa fa-cubes"></i><span class="app-menu__label">Buat Akun komunitas</span></a></li>
         <li><a class="app-menu__item {{ (strpos(Route::currentRouteName(), 'pesan') === 0) ? 'active' : '' }}" href="{{route('pesan')}}"><i class="app-menu__icon fa fa-cubes"></i><span class="app-menu__label">Pesan Tempat Plaza</span></a></li>
         <li><a class="app-menu__item {{ (strpos(Route::currentRouteName(), 'profil') === 0) ? 'active' : '' }}" href="{{route('profil')}}"><i class="app-menu__icon fa fa-user"></i><span class="app-menu__label">Profil</span></a></li>  
         <li><a class="app-menu__item" href="{{url('logout')}}"><i class="app-menu__icon fa fa-window-close"></i><span class="app-menu__label">Logout</span></a></li> 

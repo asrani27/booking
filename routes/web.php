@@ -70,6 +70,9 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
     Route::get('/komunitas/delete/{id}', 'MasterkomunitasController@delete');
     Route::get('/komunitas/delete/anggota/{id_anggota}/{id_komunitas}', 'MasterkomunitasController@deleteanggota');
     Route::post('/komunitas/saveanggota', 'MasterkomunitasController@simpananggota')->name('saveAnggotaKomunitas');
+    
+    Route::get('/komunitas/setujui/{id}', 'MasterkomunitasController@setujui');
+    Route::get('/komunitas/tolak/{id}', 'MasterkomunitasController@tolak');
 
     Route::get('/agendakomunitas', 'KomunitasController@index');
     Route::get('/agendakomunitas/delete/{id}', 'KomunitasController@delete');
@@ -89,6 +92,8 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
 
 Route::group(['middleware' => ['auth', 'role:anggota']], function () {
     Route::get('/pesan/tempat', 'BookingController@pesan')->name('pesan');
+    Route::get('/akunkomunitas', 'BookingController@akunkomunitas')->name('akunkomunitas');
+    Route::post('/akunkomunitas', 'BookingController@saveKomunitas')->name('saveKomunitasMember');
     Route::post('/pesan/tempat/store', 'BookingController@pesanTempat')->name('pesanTempat');
     Route::post('/pesan/waktu', 'BookingController@waktu');
     Route::get('/komunitasku', 'MyKomunitasController@index');

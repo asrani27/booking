@@ -27,6 +27,7 @@
               <th>Deskripsi Komunitas</th>
               <th>Penanggung Jawab</th>
               <th>Jumlah Anggota</th>
+              <th>Status Validasi</th>
               <th>Aksi</th>
             </tr>
           </thead>
@@ -48,6 +49,15 @@
                 </td>
                 <td>{{$d->jumlah_anggota}}</td>
                 <td>
+                  @if($d->validasi_admin == 0)
+                  Di Proses
+                  @elseif($d->validasi_admin == 1)
+                  Di Tolak
+                  @elseif($d->validasi_admin == 2)
+                  Di Setujui
+                  @endif
+                </td>
+                <td>
                     <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
                         <div class="btn-group" role="group">
                           <button class="btn btn-primary btn-sm" id="btnGroupDrop1" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-gears"></i></button>
@@ -55,6 +65,10 @@
                             <a class="dropdown-item add-anggota" href="#" data-id="{{$d->id}}"><i class="fa fa-user"></i> Tambah Anggota</a>
                             <a class="dropdown-item" href={{url("komunitas/edit/{$d->id}")}} ><i class="fa fa-edit"></i> Edit</a>
                             <a class="dropdown-item" href={{url("komunitas/delete/{$d->id}")}} onclick="return confirm('Yakin Ingin Menghapus Data Ini..?');"><i class="fa fa-trash"></i> Hapus</a>
+                            
+                            {{-- Tombol Validasi --}}
+                            <a class="dropdown-item" href={{url("komunitas/setujui/{$d->id}")}} onclick="return confirm('Yakin Ingin Di Lanjutkan..?');"><i class="fa fa-check"></i> Setujui</a>
+                            <a class="dropdown-item" href={{url("komunitas/tolak/{$d->id}")}} onclick="return confirm('Yakin Ingin Di Lanjutkan..?');"><i class="fa fa-close"></i> Tolak</a>
                           </div>
                         </div>
                     </div>

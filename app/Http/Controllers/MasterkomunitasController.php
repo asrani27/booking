@@ -103,5 +103,20 @@ class MasterkomunitasController extends Controller
         $anggota = $mk->anggota;
         return view('masterkomunitas.daftaranggota',compact('anggota','mk'));
     }
+
+    public function setujui($id)
+    {
+        $u = Masterkomunitas::find($id);
+        $u->validasi_admin = 2;
+        $u->save();
+        return back();
+    }
+    public function tolak($id)
+    {
+        $u = Masterkomunitas::find($id);
+        $u->validasi_admin = 1;
+        $u->save();
+        return back();
+    }
     
 }

@@ -36,7 +36,7 @@ class BookingController extends Controller
             $status = 1;
         }
         $waktu = Waktu::all();
-        $komunitas = Auth::user()->anggota->masterkomunitas;
+        $komunitas = Auth::user()->anggota->masterkomunitas->where('validasi_admin',2);
         //dd($status, Auth::user()->anggota->masterkomunitas);
         return view('member.pesantempat',compact('waktu','komunitas','status'));
     }
@@ -135,5 +135,23 @@ class BookingController extends Controller
         }   
         //dd($namaKomunitas);
         return response()->json([$waktuTersedia, $status, $namaKomunitas]);
+    }
+
+    public function akunkomunitas()
+    {
+        return view('member.addkomunitas');
+    }
+
+    public function saveKomunitas(Request $req)
+    {
+        $k = new Masterkomunitas;
+        $k->nama_komunitas = $req->nama_komunitas;
+        $k->deskripsi = $req->deskripsi;
+        $k->anggota_id = Auth::user()->anggota->id;
+        $k->validasi_admin = 0;
+        $k->save();
+
+        Alert::success('Success Message', 'Komunitas Anda Berhasil Disimpan, Harap Menunggu Validasi Admin')->autoclose(3500);
+        return redirect('/komunitasku');
     }
 }
