@@ -32,16 +32,23 @@ class FrontController extends Controller
 
     public function simpanPeserta(Request $req)
     {  
-        
-        $p = new Peserta;
-        $p->nama = $req->nama;
-        $p->telp = $req->telp;
-        $p->alamat = $req->alamat;
-        $p->email = $req->email;
-        $p->pemko_id = $req->pemko_id;
-        $p->save();
+        $checkEmail = Peserta::where('email', $req->email)->where('pemko_id', $req->pemko_id)->first();
+        if($checkEmail != null){
+            Alert::info('Info Message', 'Anda Tidak Bisa mendaftar 2x dengan email yang sama pada kegiatan yang sama')->persistent('Close');
+            return back();
+        }else{
+            $p = new Peserta;
+            $p->nama = $req->nama;
+            $p->telp = $req->telp;
+            $p->alamat = $req->alamat;
+            $p->email = $req->email;
+            $p->pemko_id = $req->pemko_id;
+            $p->save();
 
-        $id_peserta = $p->id;
+            $id_peserta = $p->id;
+            Alert::success('Success Message', 'Terima Kasih, Harap Menunggu Admin Untuk Memvalidasi Pendaftaran Anda')->persistent('Close');
+            return back();
+        }
 
             // Mail::send('email', ['nama' => $req->nama, 
             //                      'id_peserta' => $id_peserta
@@ -53,8 +60,6 @@ class FrontController extends Controller
             //     $message->to($req->email);
             // });
 
-        Alert::success('Success Message', 'Terima Kasih, Harap Menunggu Admin Untuk Memvalidasi Pendaftaran Anda')->persistent('Close');
-        return back();
     }
 
     public function validasi($id)

@@ -64,7 +64,7 @@
                           <div class="dropdown-menu dropdown-menu-right">
                             <a class="dropdown-item" href={{url("agenda/validasi/{$d->id}")}} onclick="return confirm('Setujui Dan Kirim Undangan..?');"><i class="fa fa-check"></i> Setujui</a>
                             <a class="dropdown-item" href={{url("peserta/tidaksetujui/{$d->id}")}} onclick="return confirm('Yakin Tidak Disetujui..?');"><i class="fa fa-close"></i> Tidak Setujui</a>
-                            <a class="dropdown-item" href={{url("peserta/hapus/{$d->id}")}} onclick="return confirm('Yakin Ingin Dihapus..?');"><i class="fa fa-close"></i> Hapus</a>
+                            <a class="dropdown-item" href={{url("peserta/hapus/{$d->id}")}} onclick="return confirm('Yakin Ingin Dihapus..?');"><i class="fa fa-trash"></i> Hapus</a>
                           </div>
                         </div>
                     </div>
