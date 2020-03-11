@@ -39,7 +39,7 @@ Route::get('/logout', function () {
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/agenda/komunitas', 'FrontController@komunitas');
-Route::get('/agenda/validasi/{id}', 'FrontController@validasi');
+//Route::get('/agenda/validasi/{id}', 'FrontController@validasi');
 Route::get('/agenda/pemko', 'FrontController@pemko');
 Route::get('/booking', 'FrontController@booking');
 Route::get('/daftar', 'FrontController@daftaranggota');
@@ -51,6 +51,8 @@ Route::post('/booking/store', 'FrontController@store')->name('storeBooking');
 
 Route::group(['middleware' => ['auth', 'role:admin']], function () {
 
+    Route::get('/agenda/validasi/{id}', 'FrontController@validasi');
+    
     Route::post('/anggotaplaza/mail', 'AnggotaController@cekmail')->name('cek.mail');
     Route::post('/anggotaplaza/user', 'AnggotaController@cekuser')->name('cek.user');
     Route::get('/anggotaplaza/delete/{id}', 'AnggotaController@delete');

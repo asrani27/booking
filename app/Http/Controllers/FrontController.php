@@ -42,17 +42,17 @@ class FrontController extends Controller
 
         $id_peserta = $p->id;
 
-            Mail::send('email', ['nama' => $req->nama, 
-                                 'id_peserta' => $id_peserta
-                                ], 
+            // Mail::send('email', ['nama' => $req->nama, 
+            //                      'id_peserta' => $id_peserta
+            //                     ], 
 
-            function ($message) use ($req){
-                $message->subject('Validasi Peserta Kegiatan Plaza SmartCity');
-                $message->from('bjmplazasmartcity@gmail.com', 'Plaza BJM');
-                $message->to($req->email);
-            });
+            // function ($message) use ($req){
+            //     $message->subject('Validasi Peserta Kegiatan Plaza SmartCity');
+            //     $message->from('bjmplazasmartcity@gmail.com', 'Plaza BJM');
+            //     $message->to($req->email);
+            // });
 
-        Alert::success('Success Message', 'Terima Kasih, Silahkan Cek Email Anda Untuk Validasi Peserta')->persistent('Close');
+        Alert::success('Success Message', 'Terima Kasih, Harap Menunggu Admin Untuk Memvalidasi Pendaftaran Anda')->persistent('Close');
         return back();
     }
 
