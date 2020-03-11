@@ -118,12 +118,11 @@ class FrontController extends Controller
             return $item;
         });
         
-        //dd($mapkeg, $s);
         Mail::send('undangan',['keg' => $mapkeg->first(), 
         'peserta' => $s
         ],
        function ($message) use ($email){
-                $message->subject('Undangan Resmi Kegiatan Plaza SmartCity');
+                $message->subject('Undangan Resmi Kegiatan'.$mapkeg->first()->data->nama_kegiatan);
                 $message->from('plaza.bjm@gmail.com', 'Plaza BJM');
                 $message->to($email);
             });
