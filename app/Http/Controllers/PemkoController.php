@@ -27,7 +27,7 @@ class PemkoController extends Controller
             }
             
             return $item;
-        });
+        })->sortByDesc('id');
         
         return view('pemko.index',compact('data'));
     }
