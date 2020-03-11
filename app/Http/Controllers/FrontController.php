@@ -121,8 +121,8 @@ class FrontController extends Controller
         Mail::send('undangan',['keg' => $mapkeg->first(), 
         'peserta' => $s
         ],
-       function ($message) use ($email){
-                $message->subject('Undangan Resmi Kegiatan PLAZA SMART CITY');
+       function ($message) use ($email, $mapkeg){
+                $message->subject('Undangan Resmi Kegiatan '.$mapkeg->first()->data->nama_kegiatan);
                 $message->from('plaza.bjm@gmail.com', 'Plaza BJM');
                 $message->to($email);
             });
