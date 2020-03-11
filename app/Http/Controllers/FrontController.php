@@ -122,7 +122,7 @@ class FrontController extends Controller
         'peserta' => $s
         ],
        function ($message) use ($email){
-                $message->subject('Undangan Resmi Kegiatan'.$mapkeg->first()->data->nama_kegiatan);
+                $message->subject('Undangan Resmi Kegiatan PLAZA SMART CITY');
                 $message->from('plaza.bjm@gmail.com', 'Plaza BJM');
                 $message->to($email);
             });
