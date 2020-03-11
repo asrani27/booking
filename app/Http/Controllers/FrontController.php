@@ -73,7 +73,7 @@ class FrontController extends Controller
 
             Alert::success('Success Message', 'Mohon Maaf Kuota Telah Penuh, Terima Kasih')->persistent('Close');
        
-            return view('validasisukses');
+            return back();
         }
         else {
             
