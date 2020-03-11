@@ -35,7 +35,7 @@ class PesertaController extends Controller
     public function hapus($id)
     {
         $s = Peserta::find($id)->delete();
-        Alert::success('Success Message', 'Peserta Dihapusgit ')->autoclose(3500);
+        Alert::success('Success Message', 'Peserta Dihapus')->autoclose(3500);
         return back();
     }
 }
