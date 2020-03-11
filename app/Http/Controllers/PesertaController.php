@@ -10,7 +10,7 @@ class PesertaController extends Controller
 {
     public function index()
     {
-        $data = Peserta::all();
+        $data = Peserta::orderBy('created_at','desc')->get();
         return view('peserta.index',compact('data'));
     }
 
