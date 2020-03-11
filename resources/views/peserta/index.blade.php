@@ -48,11 +48,11 @@
                 <td>
                   
                     @if($d->verifikasi == 0)
-                    Di Proses
+                    <span class="badge badge-warning">Di Proses</span>
                     @elseif($d->verifikasi == 2)
-                    Tidak DiSetujui
+                    <span class="badge badge-danger">Tidak DiSetujui</span>
                     @elseif($d->verifikasi == 1)
-                    Disetujui
+                    <span class="badge badge-success">Disetujui</span>
                     @endif
                     
                 </td>
