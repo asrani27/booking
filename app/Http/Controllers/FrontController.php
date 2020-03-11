@@ -122,9 +122,9 @@ class FrontController extends Controller
                 $message->to($email);
             });
 
-        Alert::success('Success Message', 'Undangan Resmi Telah Di Kirim Ke Email Anda, Terima Kasih')->persistent('Close');
+        Alert::success('Success Message', 'Undangan Resmi Telah Di Kirim Ke Peserta')->persistent('Close');
        
-        return view('validasisukses');
+        return back();
         }
     }
 
