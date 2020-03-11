@@ -31,4 +31,11 @@ class PesertaController extends Controller
         Alert::success('Success Message', 'Tidak Disetujui')->autoclose(3500);
         return back();
     }
+
+    public function hapus($id)
+    {
+        $s = Peserta::find($id)->delete();
+        Alert::success('Success Message', 'Peserta Dihapusgit ')->autoclose(3500);
+        return back();
+    }
 }

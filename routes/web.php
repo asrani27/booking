@@ -52,7 +52,7 @@ Route::post('/booking/store', 'FrontController@store')->name('storeBooking');
 Route::group(['middleware' => ['auth', 'role:admin']], function () {
 
     Route::get('/agenda/validasi/{id}', 'FrontController@validasi');
-    
+
     Route::post('/anggotaplaza/mail', 'AnggotaController@cekmail')->name('cek.mail');
     Route::post('/anggotaplaza/user', 'AnggotaController@cekuser')->name('cek.user');
     Route::get('/anggotaplaza/delete/{id}', 'AnggotaController@delete');
@@ -120,6 +120,7 @@ Route::group(['middleware' => ['auth', 'role:admin|pengelola']], function () {
 
     Route::get('/pesertakegiatan', 'PesertaController@index');
     Route::get('/peserta/setujui/{id}', 'PesertaController@setujui');
+    Route::get('/peserta/hapus/{id}', 'PesertaController@hapus');
     Route::get('/peserta/tidaksetujui/{id}', 'PesertaController@tidaksetujui');
 });
 

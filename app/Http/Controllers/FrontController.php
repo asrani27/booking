@@ -32,6 +32,7 @@ class FrontController extends Controller
 
     public function simpanPeserta(Request $req)
     {  
+        
         $p = new Peserta;
         $p->nama = $req->nama;
         $p->telp = $req->telp;
