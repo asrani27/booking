@@ -45,7 +45,7 @@
                 $no = 1;
                 ?>
                 <tbody>
-                    @foreach ($pk as $m)
+                    @foreach ($pk->sortByDesc('id') as $m)
                     <tr>
                         <td>{{$no++}}</td>
                         <td>{{$m->data->nama_kegiatan}}</td>
