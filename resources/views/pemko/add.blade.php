@@ -73,6 +73,9 @@
               <div class="col-md-8">
                 <input type="file" name="file" required>
               </div>
+              @if(count($errors) > 0)
+              <font color="red">Hanya Bisa Upload File Gambar </font><br>
+              @endif
             </div>
             <div class="form-group row">
               <label class="control-label col-md-3">Publish</label>
