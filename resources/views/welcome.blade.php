@@ -32,10 +32,30 @@
 			</div>
 		</div>
 	</div>
-	
+
+<!-- Modal -->
+<div id="information" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title text-dark">Informasi</h4>
+      </div>
+      <div class="modal-body">
+        <h3 class="text-dark">Aplikasi Plaza Di Alihkan ke <a href="http://visitbpsc.web.app" target="_blank" class="text-primary">visitbpsc.web.app</a></h3>
+      </div>
+    </div>
+
+  </div>
+</div>
 @endsection
 
 
 @push('add_js')
-
+<script>
+$( document ).ready(function() {
+	$('#information').modal('show');
+});
+</script>
 @endpush
